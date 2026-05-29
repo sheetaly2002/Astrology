@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport"/>
+<title>AstroHub - Your Celestial Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500;600;700&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-variant": "#f1dfd1",
+                    "on-tertiary-fixed": "#3b0900",
+                    "surface-container-high": "#f7e5d7",
+                    "on-tertiary-container": "#812000",
+                    "surface-tint": "#8b5000",
+                    "tertiary-container": "#ff9475",
+                    "on-primary-container": "#653900",
+                    "secondary": "#785900",
+                    "primary": "#8b5000",
+                    "on-secondary-fixed": "#261a00",
+                    "on-error-container": "#93000a",
+                    "on-secondary-fixed-variant": "#5b4300",
+                    "background": "#fff8f5",
+                    "primary-fixed-dim": "#ffb870",
+                    "tertiary": "#b02f00",
+                    "secondary-fixed": "#ffdf9e",
+                    "on-surface": "#231a11",
+                    "surface-dim": "#e9d7c9",
+                    "outline-variant": "#dbc2ad",
+                    "on-secondary-container": "#6c5000",
+                    "tertiary-fixed-dim": "#ffb5a0",
+                    "primary-container": "#ff9800",
+                    "on-surface-variant": "#554434",
+                    "secondary-container": "#fdc003",
+                    "surface-container-highest": "#f1dfd1",
+                    "primary-fixed": "#ffdcbe",
+                    "error-container": "#ffdad6",
+                    "surface-container": "#fdebdc",
+                    "on-tertiary": "#ffffff",
+                    "secondary-fixed-dim": "#fabd00",
+                    "inverse-on-surface": "#ffeee1",
+                    "on-primary-fixed": "#2c1600",
+                    "surface-container-lowest": "#ffffff",
+                    "surface-bright": "#fff8f5",
+                    "error": "#ba1a1a",
+                    "surface-container-low": "#fff1e7",
+                    "surface": "#fff8f5",
+                    "outline": "#887361",
+                    "on-primary": "#ffffff",
+                    "tertiary-fixed": "#ffdbd1",
+                    "inverse-surface": "#392e25",
+                    "on-secondary": "#ffffff",
+                    "on-primary-fixed-variant": "#693c00",
+                    "on-background": "#231a11",
+                    "on-error": "#ffffff",
+                    "inverse-primary": "#ffb870",
+                    "on-tertiary-fixed-variant": "#862200"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "container-padding-desktop": "40px",
+                    "unit": "8px",
+                    "container-padding-mobile": "20px",
+                    "stack-sm": "8px",
+                    "gutter": "16px",
+                    "stack-md": "16px",
+                    "stack-lg": "32px"
+            },
+            "fontFamily": {
+                    "headline-lg": ["EB Garamond"],
+                    "body-md": ["Inter"],
+                    "headline-md": ["EB Garamond"],
+                    "display-lg": ["EB Garamond"],
+                    "label-caps": ["Inter"],
+                    "body-lg": ["Inter"],
+                    "headline-lg-mobile": ["EB Garamond"],
+                    "body-sm": ["Inter"]
+            },
+            "fontSize": {
+                    "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "600"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "500"}],
+                    "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "600"}],
+                    "label-caps": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "headline-lg-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "600"}],
+                    "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+        }
+        .spiritual-gradient {
+            background: linear-gradient(135deg, #8b5000 0%, #b02f00 100%);
+        }
+        .glow-soft {
+            box-shadow: 0px 4px 20px rgba(255, 152, 0, 0.12);
+        }
+        .active-glow {
+            box-shadow: 0px 4px 15px rgba(139, 80, 0, 0.3);
+        }
+        body {
+            background-image: radial-gradient(circle at top right, rgba(253, 192, 3, 0.05), transparent 400px),
+                              radial-gradient(circle at bottom left, rgba(176, 47, 0, 0.03), transparent 400px);
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+<style>
+</style>
+<style id="astro-simple-side-navbar-style">
+/* Simple side navbar */
+.astro-side-navbar{position:fixed!important;left:0!important;top:0!important;bottom:0!important;width:230px!important;height:100vh!important;z-index:99999!important;background:#111827!important;border-right:1px solid rgba(255,255,255,.12)!important;box-shadow:8px 0 24px rgba(0,0,0,.18)!important;padding:18px 12px!important;box-sizing:border-box!important;font-family:Inter,Arial,sans-serif!important;overflow-y:auto!important}
+.astro-side-brand{display:block!important;color:#fff!important;text-decoration:none!important;font-size:18px!important;font-weight:800!important;line-height:1.25!important;padding:10px 12px 16px!important;margin-bottom:8px!important;border-bottom:1px solid rgba(255,255,255,.14)!important}
+.astro-side-links{display:flex!important;flex-direction:column!important;gap:6px!important}
+.astro-nav-link{display:block!important;color:#e5e7eb!important;text-decoration:none!important;font-size:14px!important;font-weight:600!important;line-height:1.2!important;padding:10px 12px!important;border-radius:10px!important;background:transparent!important;border:0!important;white-space:normal!important;box-shadow:none!important;transition:background .15s ease,color .15s ease!important}
+.astro-nav-link:hover{background:rgba(255,255,255,.10)!important;color:#fff!important;transform:none!important}
+.astro-nav-link.active{background:#f59e0b!important;color:#111827!important;font-weight:800!important}
+body{padding-left:230px!important;box-sizing:border-box!important}
+@media(max-width:760px){.astro-side-navbar{width:190px!important;padding:14px 9px!important}.astro-side-brand{font-size:16px!important}.astro-nav-link{font-size:13px!important;padding:9px 10px!important}body{padding-left:190px!important}}
+</style>
+</head>
+<body class="bg-background text-on-surface font-body-md min-h-screen pb-24">
+<!-- Simple side navbar -->
+<aside class="astro-side-navbar">
+  <a class="astro-side-brand" href="index.html">Astro Presentation</a>
+  <nav class="astro-side-links" aria-label="Main screens">
+    <a class="astro-nav-link" href="index.html" data-page="index.html">Home</a>
+    <a class="astro-nav-link" href="code1.html" data-page="code1.html">Mall</a>
+    <a class="astro-nav-link" href="code2.html" data-page="code2.html">Consultation</a>
+    <a class="astro-nav-link" href="code3.html" data-page="code3.html">Wallet</a>
+    <a class="astro-nav-link" href="code4.html" data-page="code4.html">Aetheric 1</a>
+    <a class="astro-nav-link" href="code5.html" data-page="code5.html">Aetheric 2</a>
+    <a class="astro-nav-link" href="code6.html" data-page="code6.html">Catalog</a>
+    <a class="astro-nav-link" href="code7.html" data-page="code7.html">Dashboard</a>
+    <a class="astro-nav-link" href="code8.html" data-page="code8.html">Kundli</a>
+    <a class="astro-nav-link" href="code9.html" data-page="code9.html">Pro Kundli</a>
+    <a class="astro-nav-link" href="code10.html" data-page="code10.html">AI Assistant</a>
+    <a class="astro-nav-link" href="code11.html" data-page="code11.html">AstroHub</a>
+    <a class="astro-nav-link" href="code12.html" data-page="code12.html">Community</a>
+    <a class="astro-nav-link" href="code13.html" data-page="code13.html">Screen 13</a>
+    <a class="astro-nav-link" href="code14.html" data-page="code14.html">Screen 14</a>
+    <a class="astro-nav-link" href="code15.html" data-page="code15.html">Live Consult</a>
+    <a class="astro-nav-link" href="code16.html" data-page="code16.html">Universal Wallet</a>
+  </nav>
+</aside>
+<!-- /Simple side navbar -->
+
+<!-- /Website style common navbar -->
+
+<!-- Top App Bar -->
+<header class="fixed top-0 w-full z-50 bg-surface/80 dark:bg-surface-dim/80 backdrop-blur-xl border-b border-outline-variant/30 shadow-sm shadow-primary/5 flex justify-between items-center px-container-padding-mobile h-16">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full overflow-hidden border-2 border-primary/20 p-0.5 glow-soft">
+<img alt="Avatar" class="w-full h-full object-cover rounded-full" data-alt="A professional high-quality 3D avatar of a serene spiritual guide with a glowing golden halo. The character has a calm expression and is set against a minimalist white and warm orange background. The artistic style is polished and modern, reflecting an enlightened digital personality." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA4rU9fOI8Ut4KzT-t3_F4vgU7tXBtPjegBMBjZ787URsNcV0vZd_rBj3qLyXzr8WTWLwgtMPrrFKGsC-XtpvLaCCGUfJnm9uqWhbZoJvwtmMV0S5UFUVtT1l2vKlPYRf6Z2XG3eM51ma4ton7waxZ31BGXyCdkaGDmq8blBixEbALlUv2V0QtAHMvZbwLMPH1wPXcIx5Eu7wJoozTDs1Mt5XzzSx1q9QP2N6_AAqXJZ-3JFmECcXvEjeDgUnzPYbl1May1XCZSKz4"/>
+</div>
+<span class="font-headline-md text-headline-md font-bold text-primary dark:text-primary-fixed-dim">AstroConnect</span>
+</div>
+<div class="flex items-center gap-4">
+<button class="bg-surface-container-low text-primary px-3 py-1.5 rounded-full font-label-caps text-label-caps flex items-center gap-1.5 border border-outline-variant/20 hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined text-[18px]">account_balance_wallet</span>
+                ₹1,250
+            </button>
+</div>
+</header>
+<main class="pt-20 px-container-padding-mobile max-w-screen-xl mx-auto space-y-stack-lg">
+<!-- Daily Horoscope Section -->
+<section class="mt-4">
+<div class="glass-card rounded-[2rem] p-6 relative overflow-hidden glow-soft">
+<div class="absolute -right-12 -top-12 w-48 h-48 bg-primary/5 rounded-full blur-3xl"></div>
+<div class="flex justify-between items-start">
+<div class="space-y-1">
+<span class="font-label-caps text-label-caps text-on-surface-variant tracking-widest">DAILY HOROSCOPE</span>
+<h1 class="font-headline-lg text-headline-lg text-on-surface">Aries</h1>
+<p class="text-on-surface-variant font-body-sm max-w-[220px]">Mars aligns with Jupiter, sparking creative fires. Today is perfect for bold leaps.</p>
+</div>
+<div class="w-24 h-24 spiritual-gradient rounded-3xl flex items-center justify-center text-white active-glow transition-transform active:scale-95 duration-200">
+<span class="material-symbols-outlined text-[56px]" style="font-variation-settings: 'FILL' 1;">memory</span>
+</div>
+</div>
+<div class="mt-6 flex gap-2">
+<span class="px-3 py-1 bg-surface-container rounded-full text-on-surface-variant font-label-caps text-[10px] uppercase border border-outline-variant/30">Luck: 85%</span>
+<span class="px-3 py-1 bg-surface-container rounded-full text-on-surface-variant font-label-caps text-[10px] uppercase border border-outline-variant/30">Love: High</span>
+</div>
+</div>
+</section>
+<!-- Quick Action Grid -->
+<section class="grid grid-cols-2 md:grid-cols-4 gap-4">
+<div class="glass-card p-4 rounded-2xl flex flex-col items-center text-center gap-2 hover:bg-surface-container-high transition-all cursor-pointer group border border-outline-variant/10">
+<div class="w-12 h-12 rounded-xl bg-primary-container/20 flex items-center justify-center text-primary group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-[28px]">calendar_month</span>
+</div>
+<span class="font-label-caps text-label-caps">Panchang</span>
+</div>
+<div class="glass-card p-4 rounded-2xl flex flex-col items-center text-center gap-2 hover:bg-surface-container-high transition-all cursor-pointer group border border-outline-variant/10">
+<div class="w-12 h-12 rounded-xl bg-primary-container/20 flex items-center justify-center text-primary group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-[28px]">schedule</span>
+</div>
+<span class="font-label-caps text-label-caps">Muhurat</span>
+</div>
+<div class="glass-card p-4 rounded-2xl flex flex-col items-center text-center gap-2 hover:bg-surface-container-high transition-all cursor-pointer group border border-outline-variant/10">
+<div class="w-12 h-12 rounded-xl bg-primary-container/20 flex items-center justify-center text-primary group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-[28px]">favorite</span>
+</div>
+<span class="font-label-caps text-label-caps">Match Score</span>
+</div>
+<div class="glass-card p-4 rounded-2xl flex flex-col items-center text-center gap-2 hover:bg-surface-container-high transition-all cursor-pointer group border border-outline-variant/10">
+<div class="w-12 h-12 rounded-xl bg-primary-container/20 flex items-center justify-center text-primary group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-[28px]">auto_graph</span>
+</div>
+<span class="font-label-caps text-label-caps">Kundli</span>
+</div>
+</section>
+<!-- AI Match Score Banner -->
+<section>
+<div class="spiritual-gradient rounded-3xl p-6 text-white relative overflow-hidden glow-soft">
+<div class="absolute right-0 top-0 w-32 h-full opacity-20 pointer-events-none">
+<svg class="w-full h-full" viewbox="0 0 100 100">
+<circle cx="50" cy="50" fill="none" r="40" stroke="currentColor" stroke-dasharray="2 2" stroke-width="0.5"></circle>
+<circle cx="50" cy="50" fill="none" r="30" stroke="currentColor" stroke-width="0.5"></circle>
+</svg>
+</div>
+<div class="relative z-10 space-y-4">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[20px]">auto_awesome</span>
+<span class="font-label-caps text-label-caps tracking-widest">AI MATCH PREVIEW</span>
+</div>
+<h2 class="font-headline-md text-headline-md">Discover your cosmic sync with your partner</h2>
+<button class="bg-white text-primary px-6 py-2 rounded-full font-label-caps text-label-caps hover:bg-opacity-90 transition-all active:scale-95">Check Compatibility</button>
+</div>
+</div>
+</section>
+<!-- Consult Now Section -->
+<section class="space-y-stack-md">
+<div class="flex justify-between items-end">
+<div>
+<h3 class="font-headline-md text-headline-md text-on-surface">Consult Now</h3>
+<p class="text-on-surface-variant font-body-sm">Top verified astrologers online</p>
+</div>
+<button class="text-primary font-label-caps text-label-caps hover:underline">View All</button>
+</div>
+<div class="flex gap-4 overflow-x-auto pb-4 -mx-container-padding-mobile px-container-padding-mobile no-scrollbar">
+<!-- Astrologer Card 1 -->
+<div class="min-w-[280px] glass-card rounded-2xl p-4 border border-outline-variant/10 space-y-4">
+<div class="flex gap-3">
+<div class="relative">
+<img alt="Astrologer" class="w-16 h-16 rounded-xl object-cover" data-alt="A professional headshot of a seasoned male astrologer with graying hair and a kind expression. He wears a simple white linen shirt and is set against a warm, sunlit background with soft-focus greenery. The image is bright, high-key, and conveys a sense of wisdom and approachability." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC5cbCqMmQj35HYzDrTvIg4FFQ-SHJu-YXcQMMt67zOEL4duoKExxXBX947flKPMwew2R_Dfowze-OlSCrRkkqFFLt1epgBEynmcV_gk-oWclU2iOm6AndsbH_tLw8-vsgMnULmXovbs1EDrbsGpvqt1zMq9sPMLzoK3LO9H0oQfDMe5nz6esHkUF_f0QkmU9aTvZrW6r9y5sSg_aMLWr9nkRJS6vjd4ZOmA1C61lsRbmbHcXV88-WZcTRRvjmSq1-1OLACf3rznMs"/>
+<div class="absolute -bottom-1 -right-1 w-4 h-4 bg-green-500 border-2 border-white rounded-full"></div>
+</div>
+<div class="space-y-0.5">
+<h4 class="font-headline-md text-[18px] text-on-surface">Pandit Rajesh</h4>
+<p class="text-[12px] text-on-surface-variant">Vedic, Vastu • 12 Yrs</p>
+<div class="flex items-center text-secondary text-[12px] font-bold">
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">star</span>
+                                4.9 (2k+)
+                            </div>
+</div>
+</div>
+<div class="flex gap-2">
+<button class="flex-1 border border-primary text-primary py-2 rounded-lg font-label-caps text-[11px] flex items-center justify-center gap-1 hover:bg-primary/5 transition-colors">
+<span class="material-symbols-outlined text-[16px]">chat_bubble</span> Chat
+                        </button>
+<button class="flex-1 bg-primary text-white py-2 rounded-lg font-label-caps text-[11px] flex items-center justify-center gap-1 hover:opacity-90 transition-opacity">
+<span class="material-symbols-outlined text-[16px]">call</span> Call
+                        </button>
+</div>
+</div>
+<!-- Astrologer Card 2 -->
+<div class="min-w-[280px] glass-card rounded-2xl p-4 border border-outline-variant/10 space-y-4">
+<div class="flex gap-3">
+<div class="relative">
+<img alt="Astrologer" class="w-16 h-16 rounded-xl object-cover" data-alt="A portrait of a serene female astrologer with long dark hair, wearing elegant traditional jewelry and a soft orange saree. She is looking directly into the camera with a gentle smile. The background is a minimalist studio with soft golden lighting and subtle ethereal lens flares, creating a modern spiritual vibe." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD21EoxmNKPd7rAxMci7VwSftwpLxy1gliicWEdjgpz2nnoKcL65eL9e8rlBDA73416SSX7GItsFh5InEX23A1oPCQGkICiegUgfJfdFu6wHpdAJdKNZ-65YvZmgjrieEjHtceW4iywwMuO7uSJ3wK3LNkPJl6M_3uMyavWsxfjSeBmWN_EUS7i30zs7PLdNsgGywfJ4nqsjdMj_zOX5CTRcZJ6pERNlJeVS7HMlyOWqrjPmBsCxKKkjPbbgXWyhCfs-UiVgeOYp4g"/>
+<div class="absolute -bottom-1 -right-1 w-4 h-4 bg-green-500 border-2 border-white rounded-full"></div>
+</div>
+<div class="space-y-0.5">
+<h4 class="font-headline-md text-[18px] text-on-surface">Acharya Priya</h4>
+<p class="text-[12px] text-on-surface-variant">Tarot, Numerology • 8 Yrs</p>
+<div class="flex items-center text-secondary text-[12px] font-bold">
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">star</span>
+                                4.8 (1.5k+)
+                            </div>
+</div>
+</div>
+<div class="flex gap-2">
+<button class="flex-1 border border-primary text-primary py-2 rounded-lg font-label-caps text-[11px] flex items-center justify-center gap-1 hover:bg-primary/5 transition-colors">
+<span class="material-symbols-outlined text-[16px]">chat_bubble</span> Chat
+                        </button>
+<button class="flex-1 bg-primary text-white py-2 rounded-lg font-label-caps text-[11px] flex items-center justify-center gap-1 hover:opacity-90 transition-opacity">
+<span class="material-symbols-outlined text-[16px]">call</span> Call
+                        </button>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Bottom Navigation Bar -->
+<nav class="fixed bottom-0 w-full z-50 rounded-t-xl bg-surface/90 dark:bg-surface-container-lowest/90 backdrop-blur-xl border-t border-outline-variant/30 shadow-[0_-4px_20px_rgba(139,80,0,0.08)] flex justify-around items-center h-20 px-2 pb-safe">
+<!-- Home Active -->
+<a class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container dark:bg-primary dark:text-on-primary rounded-full px-4 py-1 scale-110 transition-all duration-200 ease-out" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">home</span>
+<span class="font-label-caps text-[10px]">Home</span>
+</a>
+<!-- Consult -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline p-2 hover:text-primary transition-all" href="#">
+<span class="material-symbols-outlined">chat_bubble</span>
+<span class="font-label-caps text-[10px]">Consult</span>
+</a>
+<!-- Mall -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline p-2 hover:text-primary transition-all" href="#">
+<span class="material-symbols-outlined">shopping_bag</span>
+<span class="font-label-caps text-[10px]">Mall</span>
+</a>
+<!-- Charts -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline p-2 hover:text-primary transition-all" href="#">
+<span class="material-symbols-outlined">auto_graph</span>
+<span class="font-label-caps text-[10px]">Charts</span>
+</a>
+<!-- Wallet -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline p-2 hover:text-primary transition-all" href="#">
+<span class="material-symbols-outlined">account_balance_wallet</span>
+<span class="font-label-caps text-[10px]">Wallet</span>
+</a>
+</nav>
+<script>
+        // Micro-interactions for glass cards
+        document.querySelectorAll('.glass-card').forEach(card => {
+            card.addEventListener('touchstart', () => {
+                card.style.transform = 'scale(0.98)';
+            });
+            card.addEventListener('touchend', () => {
+                card.style.transform = 'scale(1)';
+            });
+        });
+
+        // Simple smooth entrance for content
+        window.addEventListener('DOMContentLoaded', () => {
+            const main = document.querySelector('main');
+            main.style.opacity = '0';
+            main.style.transform = 'translateY(10px)';
+            main.style.transition = 'all 0.5s ease-out';
+            
+            requestAnimationFrame(() => {
+                main.style.opacity = '1';
+                main.style.transform = 'translateY(0)';
+            });
+        });
+    </script>
+
+
+<script id="astro-active-nav-script">
+(function(){
+  var current=(location.pathname.split('/').pop()||'index.html').toLowerCase();
+  document.querySelectorAll('.astro-nav-link').forEach(function(a){
+    if((a.getAttribute('data-page')||'').toLowerCase()===current){a.classList.add('active');}
+  });
+})();
+</script>
+</body></html>

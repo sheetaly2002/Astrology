@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>AstroSaaS | Community Feed</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Playfair+Display:wght@600;700&amp;family=JetBrains+Mono:wght@500&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container": "#edeeef",
+                        "status-available": "#10B981",
+                        "inverse-primary": "#ffb77d",
+                        "surface-variant": "#e1e3e4",
+                        "secondary-fixed": "#ffe16d",
+                        "on-tertiary": "#ffffff",
+                        "on-secondary-container": "#6e5c00",
+                        "primary-container": "#ff8c00",
+                        "on-error": "#ffffff",
+                        "on-primary-fixed-variant": "#6e3900",
+                        "secondary-fixed-dim": "#e9c400",
+                        "on-error-container": "#93000a",
+                        "primary-fixed": "#ffdcc3",
+                        "surface-container-high": "#e7e8e9",
+                        "on-tertiary-fixed-variant": "#3a4951",
+                        "on-secondary": "#ffffff",
+                        "on-secondary-fixed": "#221b00",
+                        "on-primary-fixed": "#2f1500",
+                        "outline": "#897362",
+                        "primary-fixed-dim": "#ffb77d",
+                        "secondary": "#705d00",
+                        "deep-navy": "#1A202C",
+                        "tertiary-container": "#9cacb6",
+                        "on-tertiary-fixed": "#0e1d25",
+                        "inverse-surface": "#2e3132",
+                        "on-tertiary-container": "#314048",
+                        "error": "#ba1a1a",
+                        "energy-yellow": "#FFD700",
+                        "primary": "#904d00",
+                        "on-surface": "#191c1d",
+                        "secondary-container": "#fcd400",
+                        "error-container": "#ffdad6",
+                        "tertiary": "#516169",
+                        "surface-bright": "#f8f9fa",
+                        "slate-gray": "#4A5568",
+                        "surface-container-low": "#f3f4f5",
+                        "on-primary": "#ffffff",
+                        "chart-line": "#E2E8F0",
+                        "surface-tint": "#904d00",
+                        "on-secondary-fixed-variant": "#544600",
+                        "surface-container-lowest": "#ffffff",
+                        "tertiary-fixed-dim": "#b9c9d3",
+                        "background": "#f8f9fa",
+                        "status-busy": "#F59E0B",
+                        "inverse-on-surface": "#f0f1f2",
+                        "surface-dim": "#d9dadb",
+                        "tertiary-fixed": "#d5e5ef",
+                        "sacred-orange": "#FF8C00",
+                        "on-primary-container": "#623200",
+                        "surface": "#f8f9fa",
+                        "outline-variant": "#ddc1ae",
+                        "on-background": "#191c1d",
+                        "on-surface-variant": "#564334",
+                        "surface-container-highest": "#e1e3e4"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "gutter": "24px",
+                        "margin-desktop": "40px",
+                        "margin-mobile": "16px",
+                        "stack-lg": "48px",
+                        "stack-md": "24px",
+                        "base": "8px",
+                        "stack-sm": "12px",
+                        "container-max": "1280px"
+                    },
+                    "fontFamily": {
+                        "body-sm": ["Inter"],
+                        "body-md": ["Inter"],
+                        "display-lg-mobile": ["Playfair Display"],
+                        "data-mono": ["JetBrains Mono"],
+                        "label-caps": ["Inter"],
+                        "headline-sm": ["Playfair Display"],
+                        "display-lg": ["Playfair Display"],
+                        "body-lg": ["Inter"],
+                        "headline-md": ["Playfair Display"]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .feed-gradient {
+            background: linear-gradient(135deg, #FF8C00 0%, #FFD700 100%);
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+<style>
+</style>
+<style id="astro-simple-side-navbar-style">
+/* Simple side navbar */
+.astro-side-navbar{position:fixed!important;left:0!important;top:0!important;bottom:0!important;width:230px!important;height:100vh!important;z-index:99999!important;background:#111827!important;border-right:1px solid rgba(255,255,255,.12)!important;box-shadow:8px 0 24px rgba(0,0,0,.18)!important;padding:18px 12px!important;box-sizing:border-box!important;font-family:Inter,Arial,sans-serif!important;overflow-y:auto!important}
+.astro-side-brand{display:block!important;color:#fff!important;text-decoration:none!important;font-size:18px!important;font-weight:800!important;line-height:1.25!important;padding:10px 12px 16px!important;margin-bottom:8px!important;border-bottom:1px solid rgba(255,255,255,.14)!important}
+.astro-side-links{display:flex!important;flex-direction:column!important;gap:6px!important}
+.astro-nav-link{display:block!important;color:#e5e7eb!important;text-decoration:none!important;font-size:14px!important;font-weight:600!important;line-height:1.2!important;padding:10px 12px!important;border-radius:10px!important;background:transparent!important;border:0!important;white-space:normal!important;box-shadow:none!important;transition:background .15s ease,color .15s ease!important}
+.astro-nav-link:hover{background:rgba(255,255,255,.10)!important;color:#fff!important;transform:none!important}
+.astro-nav-link.active{background:#f59e0b!important;color:#111827!important;font-weight:800!important}
+body{padding-left:230px!important;box-sizing:border-box!important}
+@media(max-width:760px){.astro-side-navbar{width:190px!important;padding:14px 9px!important}.astro-side-brand{font-size:16px!important}.astro-nav-link{font-size:13px!important;padding:9px 10px!important}body{padding-left:190px!important}}
+</style>
+</head>
+<body class="bg-background text-on-surface font-body-md min-h-screen pb-24">
+<!-- Simple side navbar -->
+<aside class="astro-side-navbar">
+  <a class="astro-side-brand" href="index.html">Astro Presentation</a>
+  <nav class="astro-side-links" aria-label="Main screens">
+    <a class="astro-nav-link" href="index.html" data-page="index.html">Home</a>
+    <a class="astro-nav-link" href="code1.html" data-page="code1.html">Mall</a>
+    <a class="astro-nav-link" href="code2.html" data-page="code2.html">Consultation</a>
+    <a class="astro-nav-link" href="code3.html" data-page="code3.html">Wallet</a>
+    <a class="astro-nav-link" href="code4.html" data-page="code4.html">Aetheric 1</a>
+    <a class="astro-nav-link" href="code5.html" data-page="code5.html">Aetheric 2</a>
+    <a class="astro-nav-link" href="code6.html" data-page="code6.html">Catalog</a>
+    <a class="astro-nav-link" href="code7.html" data-page="code7.html">Dashboard</a>
+    <a class="astro-nav-link" href="code8.html" data-page="code8.html">Kundli</a>
+    <a class="astro-nav-link" href="code9.html" data-page="code9.html">Pro Kundli</a>
+    <a class="astro-nav-link" href="code10.html" data-page="code10.html">AI Assistant</a>
+    <a class="astro-nav-link" href="code11.html" data-page="code11.html">AstroHub</a>
+    <a class="astro-nav-link" href="code12.html" data-page="code12.html">Community</a>
+    <a class="astro-nav-link" href="code13.html" data-page="code13.html">Screen 13</a>
+    <a class="astro-nav-link" href="code14.html" data-page="code14.html">Screen 14</a>
+    <a class="astro-nav-link" href="code15.html" data-page="code15.html">Live Consult</a>
+    <a class="astro-nav-link" href="code16.html" data-page="code16.html">Universal Wallet</a>
+  </nav>
+</aside>
+<!-- /Simple side navbar -->
+
+<!-- /Website style common navbar -->
+
+<!-- Top AppBar -->
+<header class="fixed top-0 w-full z-50 flex justify-between items-center px-4 md:px-margin-desktop h-16 bg-surface dark:bg-on-background border-b border-outline-variant shadow-sm">
+<div class="flex items-center gap-3">
+<img alt="User profile picture" class="w-10 h-10 rounded-full border-2 border-primary" data-alt="A professional high-resolution close-up portrait of a young South Asian man with a friendly smile, styled in modern corporate attire. The lighting is soft and even, typical of a professional studio setting. The background is a clean, minimalist off-white gradient that complements the modern spiritual tech aesthetic of the app." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCwrEJNBHkdAVDTmh-QnpN9sVjQoYwwxJBffDtj8TwTM6SELZz8goOpFLLVFs-rZy4cG-1YzdTbajLV35Y28r2V5vMcGdqDVx5tcPu4fsB7JQh3JL3V6-QdWt5m_2XM3r0BUQr8JCKmrgCY1Hd0L_fK8nAtsdgJgdQ9vyBlPDmxuoDNuyZZt4O-tk_g7a46thwSVMeXZTUD1XtmWp9-Z1OrBdw47Z6JBp2dbHlIawuE6Et_1am6AbNaA2LoFWdtM389ro0Qt8stqj0"/>
+<span class="font-headline-sm text-headline-sm font-bold text-sacred-orange dark:text-primary-fixed-dim">AstroSaaS</span>
+</div>
+<div class="hidden md:flex items-center gap-8">
+<a class="text-on-surface-variant hover:text-primary transition-colors font-label-caps" href="#">Home</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-label-caps" href="#">Consult</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-label-caps" href="#">Mall</a>
+<a class="text-primary font-semibold font-label-caps border-b-2 border-primary" href="#">Feed</a>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 rounded-full hover:bg-surface-container transition-colors">
+<span class="material-symbols-outlined text-on-surface-variant">search</span>
+</button>
+<div class="bg-primary-container text-on-primary-container px-3 py-1 rounded-full font-bold text-sm">
+                ₹450
+            </div>
+</div>
+</header>
+<main class="pt-20 px-margin-mobile md:px-0 max-w-3xl mx-auto space-y-stack-md">
+<!-- Search & Filter Section -->
+<section class="mt-4">
+<div class="relative group">
+<input class="w-full h-12 pl-12 pr-4 rounded-xl border border-outline-variant bg-surface-container-lowest focus:ring-2 focus:ring-sacred-orange focus:border-sacred-orange transition-all outline-none" placeholder="Search topics, spiritual guides, or remedies..." type="text"/>
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-on-surface-variant group-focus-within:text-sacred-orange">search</span>
+</div>
+<div class="flex gap-2 mt-4 overflow-x-auto pb-2 no-scrollbar">
+<span class="bg-primary text-on-primary px-4 py-1.5 rounded-full font-label-caps whitespace-nowrap cursor-pointer">All Feed</span>
+<span class="bg-surface-container-high text-on-surface-variant px-4 py-1.5 rounded-full font-label-caps whitespace-nowrap hover:bg-primary-container transition-colors cursor-pointer">Daily Remedy</span>
+<span class="bg-surface-container-high text-on-surface-variant px-4 py-1.5 rounded-full font-label-caps whitespace-nowrap hover:bg-primary-container transition-colors cursor-pointer">Vastu Tips</span>
+<span class="bg-surface-container-high text-on-surface-variant px-4 py-1.5 rounded-full font-label-caps whitespace-nowrap hover:bg-primary-container transition-colors cursor-pointer">Blue Sapphire</span>
+<span class="bg-surface-container-high text-on-surface-variant px-4 py-1.5 rounded-full font-label-caps whitespace-nowrap hover:bg-primary-container transition-colors cursor-pointer">Yoga</span>
+</div>
+</section>
+<!-- Hero Card: Daily Remedy -->
+<section class="relative group cursor-pointer overflow-hidden rounded-2xl shadow-lg transform transition-transform duration-300 active:scale-[0.98]">
+<div class="aspect-[16/9] md:aspect-[21/9] w-full relative">
+<img class="absolute inset-0 w-full h-full object-cover" data-alt="A serene landscape at dawn featuring a golden sunrise reflecting over a calm Himalayan lake. In the foreground, a minimalist stone altar is adorned with marigold petals. The lighting is ethereal and high-key, casting a sacred glow across the scene. The overall style is modern and clean, utilizing a palette of sacred orange and soft gold against a misty white background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCAHdG0eDdMGFFrtOVe-UrZCuj-KoAlhBJawG48h2gHQK8yDjfrt7mGWhWax5l6pxF24I4N-k27C2NanEVtKifTiW4efJMvEsv7k1z1p5LEpLnbgPqY_YiGI4NaCSID4W04dRH1m_fAC8bKKz7Q0Evlu_-yFeBT_rbg-lpm8jf_0UDrTcIQvu5B9uUb0Rjs63Rl6xreoniMxUejqQ8gYaJ-XsummQzy54RNfVbEWFH8kc7HgeID3ozhEZGx1Wzn6iTVQchDFMVxKkQ"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+<div class="absolute bottom-0 left-0 p-6 md:p-8 space-y-2">
+<div class="inline-flex items-center gap-2 bg-energy-yellow text-on-secondary-fixed px-3 py-1 rounded-lg font-bold text-xs uppercase tracking-wider mb-2">
+<span class="material-symbols-outlined text-sm" data-weight="fill">auto_awesome</span>
+                        Today's Shubh Yoga
+                    </div>
+<h2 class="font-headline-md text-white">Daily Remedy: Siddhi Yoga Protocol</h2>
+<p class="text-white/80 font-body-md max-w-lg">Maximize your productivity and mental clarity today by performing the Sun Salutation between 6:15 AM and 7:45 AM.</p>
+</div>
+</div>
+</section>
+<!-- Feed List -->
+<div class="space-y-stack-md">
+<!-- Blog Card 1 -->
+<article class="bg-surface-container-lowest border border-outline-variant rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-all">
+<div class="p-4 flex items-center gap-3">
+<img alt="Author" class="w-10 h-10 rounded-full bg-surface-container" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC6tZwb_lMNM1C13aMll2NUo6mNPhPjMb9zNhVaXp9OkY84b2Q82Cr5Hff3hYDVWYTQD8jZ4CL4GkmivFmfVC7krCqqCqVz7DddTttiHCeUgmnMnmAeM7XKxX96iLIBZpUMAo5p1cZlIn_i6ZIfGvwVFuCQwwIyYab5UOI_HVkxSscy4RwwFuNNxgyeQxGgt4GvL_HNmgH4PKVHvxk8893pUllzDtO7H5Qy7MPOBNLD-6eXSzh9APFuy-fsuBft3cJLUe2r8SeusBs"/>
+<div>
+<h4 class="font-body-md font-bold text-on-surface">Dr. Ananya Mishra</h4>
+<p class="text-xs text-on-surface-variant">Senior Vastu Consultant • 2h ago</p>
+</div>
+<button class="ml-auto text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined">more_vert</span>
+</button>
+</div>
+<div class="px-4 pb-2">
+<h3 class="font-headline-sm text-on-surface mb-2 leading-tight">Vastu Tips for New Homes: The Energy of Entrance</h3>
+<p class="text-on-surface-variant font-body-md line-clamp-3">The main entrance of your home is not just a door; it's a gateway for cosmic energy. Learn why north-facing entrances are considered superior for wealth accumulation and how to rectify south-facing gates with simple copper pyramids.</p>
+</div>
+<div class="relative h-64 w-full">
+<img class="w-full h-full object-cover" data-alt="A modern minimalist interior design of a luxury hallway featuring a pristine white aesthetic. The scene showcases a sleek wooden front door with geometric patterns, illuminated by warm, soft ambient lighting. Large green plants in ceramic pots stand symmetrically. The style is corporate-clean, with high-contrast architectural lines and a sense of professional tranquility." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA-jRB8rdm9J8Bv-ZNQsSe6V7jZudLQNnYh8MwKPRt5vHUx2iSpn-Sr6yocEOGSF8aYSFx9gm0i_LZs8E79FsAy-Vvu5xDNtHSGZB3fUClQSLTjTyq_6CBnu6_ST8Nq2vES8tIj5g6JmGcSakNrKbHrv1UE9pdGQr7oFrJBiqV3khz-I6T0EREdj8eZZAcKnRaPu6P1utnxp_cTw189AGCbUIWcHeBqf_Q-h-9vbGoZlXNd5h5VDzdYPRFal-GmxUnD6G0pLktfQX8"/>
+</div>
+<div class="p-4 flex items-center justify-between border-t border-outline-variant">
+<div class="flex items-center gap-6">
+<button class="flex items-center gap-1.5 text-on-surface-variant hover:text-sacred-orange transition-colors active:scale-90 group">
+<span class="material-symbols-outlined group-hover:fill-current">favorite</span>
+<span class="text-sm font-semibold">1.2k</span>
+</button>
+<button class="flex items-center gap-1.5 text-on-surface-variant hover:text-primary transition-colors active:scale-90">
+<span class="material-symbols-outlined">chat_bubble</span>
+<span class="text-sm font-semibold">84</span>
+</button>
+<button class="flex items-center gap-1.5 text-on-surface-variant hover:text-primary transition-colors active:scale-90">
+<span class="material-symbols-outlined">share</span>
+<span class="text-sm font-semibold">Share</span>
+</button>
+</div>
+<button class="text-on-surface-variant hover:text-sacred-orange transition-colors">
+<span class="material-symbols-outlined">bookmark</span>
+</button>
+</div>
+</article>
+<!-- Blog Card 2 (Blue Sapphire) -->
+<article class="bg-surface-container-lowest border border-outline-variant rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-all">
+<div class="p-4 flex items-center gap-3">
+<img alt="Author" class="w-10 h-10 rounded-full bg-surface-container" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCdZk5DHZn-B7yMe9719XfGrfHq1jbhhG-Lmhp-PMUQS9Q7fqRhVB4jWhRTKrPwhQGBdBmbzUJORkPg2moFnNmmhFOXgPrEvBvMc62_vH_4KIFK-LPv-3WNz1hkXX5EmlKbY4f87_u645QNeOU6yVPLy8mTIsVe6at160kHkqL3RR8BFRR8HBNqElvUzZjx7PmNdyoLVV8I-Mya6SGdAvd4aqG0Hx2wtJ9J6EwV9oDkIzcVr-7mc-gyikl6c6Vtg_X0Hkr8BiXoP8E"/>
+<div>
+<h4 class="font-body-md font-bold text-on-surface">Gemologist Vikram</h4>
+<p class="text-xs text-on-surface-variant">Vedic Gemology Expert • 5h ago</p>
+</div>
+</div>
+<div class="grid md:grid-cols-5 gap-0">
+<div class="md:col-span-2 relative h-48 md:h-full">
+<img class="w-full h-full object-cover" data-alt="A high-end macro photograph of a deep blue sapphire gemstone resting on a white silk cloth. The gem is faceted with precision, reflecting light to create brilliant azure and indigo sparkles. The lighting is professional studio-grade, emphasizing the stone's clarity and premium quality. The aesthetic is luxurious, modern, and spiritually significant." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCNYG_XiBzSgGwJ2i10JcIfeEz0OARy8LR5ZjZEE22JsEZovjWAy-WztTX5yl4BVk3rGE3_1L6e6vPD8c4GJdsDIBM0tX-u0sK9DIE6s2pStKVpkjq8UTxFR-mR77ZhMV2MMiOKg_OuL94jYN4U--YZl9tHNnuAxBIUFEjOKJ9YqDtWYTouC8waeNjsF_KkKNIp-JMn86dgGdKJbiQmrH6OKWRiu2j-USBVAyYXrYs-XXqZWOGAOQTXc6lxhwrfZG76d-zHgwXfa6g"/>
+</div>
+<div class="md:col-span-3 p-6 flex flex-col justify-center">
+<span class="text-primary font-label-caps mb-2">Gemstone Series #04</span>
+<h3 class="font-headline-sm text-on-surface mb-3">The Power of Blue Sapphire (Neelam)</h3>
+<p class="text-on-surface-variant font-body-sm line-clamp-2 mb-4">Shani's favorite stone can change your life in 24 hours, but it requires careful compatibility testing. Discover the signs that Neelam is working for you.</p>
+<button class="self-start text-primary font-bold flex items-center gap-1 group">
+                            Read Article
+                            <span class="material-symbols-outlined text-sm group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</button>
+</div>
+</div>
+<div class="p-4 flex items-center justify-between border-t border-outline-variant">
+<div class="flex items-center gap-6">
+<button class="flex items-center gap-1.5 text-on-surface-variant hover:text-sacred-orange transition-colors">
+<span class="material-symbols-outlined">favorite</span>
+<span class="text-sm font-semibold">3.5k</span>
+</button>
+<button class="flex items-center gap-1.5 text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined">chat_bubble</span>
+<span class="text-sm font-semibold">156</span>
+</button>
+</div>
+<button class="text-on-surface-variant hover:text-sacred-orange transition-colors">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">bookmark</span>
+</button>
+</div>
+</article>
+<!-- Card 3: Poll/Interactive -->
+<article class="bg-primary-container/10 border border-primary/20 rounded-2xl p-6 space-y-4">
+<div class="flex items-center gap-3 mb-2">
+<span class="material-symbols-outlined text-sacred-orange">poll</span>
+<h3 class="font-bold text-on-surface">Community Question</h3>
+</div>
+<p class="font-body-lg text-on-surface">Which area of your life are you currently seeking most guidance for?</p>
+<div class="space-y-2">
+<div class="w-full p-3 rounded-xl border border-outline-variant bg-white hover:border-primary cursor-pointer transition-all flex justify-between items-center">
+<span>Career &amp; Finance</span>
+<span class="text-xs font-bold text-on-surface-variant">42%</span>
+</div>
+<div class="w-full p-3 rounded-xl border border-primary bg-primary/5 cursor-pointer transition-all flex justify-between items-center">
+<span class="font-bold">Relationships &amp; Marriage</span>
+<span class="text-xs font-bold text-primary">38%</span>
+</div>
+<div class="w-full p-3 rounded-xl border border-outline-variant bg-white hover:border-primary cursor-pointer transition-all flex justify-between items-center">
+<span>Health &amp; Wellness</span>
+<span class="text-xs font-bold text-on-surface-variant">12%</span>
+</div>
+<div class="w-full p-3 rounded-xl border border-outline-variant bg-white hover:border-primary cursor-pointer transition-all flex justify-between items-center">
+<span>Spiritual Growth</span>
+<span class="text-xs font-bold text-on-surface-variant">8%</span>
+</div>
+</div>
+<p class="text-xs text-on-surface-variant italic">14,203 members have voted</p>
+</article>
+</div>
+</main>
+<!-- Bottom Navigation Bar (Mobile) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-2 py-3 bg-surface dark:bg-on-background border-t border-outline-variant shadow-lg rounded-t-xl">
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-surface-variant px-3 py-1 active:scale-90 transition-transform duration-150" href="#">
+<span class="material-symbols-outlined">home</span>
+<span class="font-label-caps text-label-caps mt-1">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-surface-variant px-3 py-1 active:scale-90 transition-transform duration-150" href="#">
+<span class="material-symbols-outlined">chat_bubble</span>
+<span class="font-label-caps text-label-caps mt-1">Consult</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-surface-variant px-3 py-1 active:scale-90 transition-transform duration-150" href="#">
+<span class="material-symbols-outlined">shopping_bag</span>
+<span class="font-label-caps text-label-caps mt-1">Mall</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-primary-container dark:bg-primary text-on-primary-container dark:text-on-primary rounded-xl px-3 py-1 active:scale-90 transition-transform duration-150" href="#">
+<span class="material-symbols-outlined">rss_feed</span>
+<span class="font-label-caps text-label-caps mt-1">Feed</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-surface-variant px-3 py-1 active:scale-90 transition-transform duration-150" href="#">
+<span class="material-symbols-outlined">account_circle</span>
+<span class="font-label-caps text-label-caps mt-1">Profile</span>
+</a>
+</nav>
+<!-- Floating Action Button for "New Post" (Contextual for Feed) -->
+<button class="fixed bottom-24 right-6 w-14 h-14 bg-sacred-orange text-white rounded-full shadow-2xl flex items-center justify-center hover:scale-110 active:scale-95 transition-all z-40 md:bottom-10 md:right-10">
+<span class="material-symbols-outlined text-3xl">add</span>
+</button>
+<script>
+        // Simple Interaction logic for likes
+        document.querySelectorAll('button.group').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const icon = this.querySelector('.material-symbols-outlined');
+                const countSpan = this.querySelector('span:not(.material-symbols-outlined)');
+                if (icon.style.fontVariationSettings.includes("'FILL' 1")) {
+                    icon.style.fontVariationSettings = "'FILL' 0, 'wght' 400";
+                    this.classList.remove('text-sacred-orange');
+                    countSpan.innerText = (parseFloat(countSpan.innerText) - 0.1).toFixed(1) + 'k';
+                } else {
+                    icon.style.fontVariationSettings = "'FILL' 1, 'wght' 400";
+                    this.classList.add('text-sacred-orange');
+                    countSpan.innerText = (parseFloat(countSpan.innerText) + 0.1).toFixed(1) + 'k';
+                }
+            });
+        });
+
+        // Search bar interaction
+        const searchInput = document.querySelector('input[type="text"]');
+        searchInput.addEventListener('focus', () => {
+            searchInput.parentElement.classList.add('scale-[1.02]');
+        });
+        searchInput.addEventListener('blur', () => {
+            searchInput.parentElement.classList.remove('scale-[1.02]');
+        });
+    </script>
+
+
+<script id="astro-active-nav-script">
+(function(){
+  var current=(location.pathname.split('/').pop()||'index.html').toLowerCase();
+  document.querySelectorAll('.astro-nav-link').forEach(function(a){
+    if((a.getAttribute('data-page')||'').toLowerCase()===current){a.classList.add('active');}
+  });
+})();
+</script>
+</body></html>

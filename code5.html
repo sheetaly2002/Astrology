@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Aetheric | Your Celestial Journey Begins</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500;600;700&amp;family=Inter:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-variant": "#f1dfd1",
+                    "on-tertiary-fixed": "#3b0900",
+                    "surface-container-high": "#f7e5d7",
+                    "on-tertiary-container": "#812000",
+                    "surface-tint": "#8b5000",
+                    "tertiary-container": "#ff9475",
+                    "on-primary-container": "#653900",
+                    "secondary": "#785900",
+                    "primary": "#8b5000",
+                    "on-secondary-fixed": "#261a00",
+                    "on-error-container": "#93000a",
+                    "on-secondary-fixed-variant": "#5b4300",
+                    "background": "#fff8f5",
+                    "primary-fixed-dim": "#ffb870",
+                    "tertiary": "#b02f00",
+                    "secondary-fixed": "#ffdf9e",
+                    "on-surface": "#231a11",
+                    "surface-dim": "#e9d7c9",
+                    "outline-variant": "#dbc2ad",
+                    "on-secondary-container": "#6c5000",
+                    "tertiary-fixed-dim": "#ffb5a0",
+                    "primary-container": "#ff9800",
+                    "on-surface-variant": "#554434",
+                    "secondary-container": "#fdc003",
+                    "surface-container-highest": "#f1dfd1",
+                    "primary-fixed": "#ffdcbe",
+                    "error-container": "#ffdad6",
+                    "surface-container": "#fdebdc",
+                    "on-tertiary": "#ffffff",
+                    "secondary-fixed-dim": "#fabd00",
+                    "inverse-on-surface": "#ffeee1",
+                    "on-primary-fixed": "#2c1600",
+                    "surface-container-lowest": "#ffffff",
+                    "surface-bright": "#fff8f5",
+                    "error": "#ba1a1a",
+                    "surface-container-low": "#fff1e7",
+                    "surface": "#fff8f5",
+                    "outline": "#887361",
+                    "on-primary": "#ffffff",
+                    "tertiary-fixed": "#ffdbd1",
+                    "inverse-surface": "#392e25",
+                    "on-secondary": "#ffffff",
+                    "on-primary-fixed-variant": "#693c00",
+                    "on-background": "#231a11",
+                    "on-error": "#ffffff",
+                    "inverse-primary": "#ffb870",
+                    "on-tertiary-fixed-variant": "#862200"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "container-padding-desktop": "40px",
+                    "unit": "8px",
+                    "container-padding-mobile": "20px",
+                    "stack-sm": "8px",
+                    "gutter": "16px",
+                    "stack-md": "16px",
+                    "stack-lg": "32px"
+            },
+            "fontFamily": {
+                    "headline-lg": ["EB Garamond"],
+                    "body-md": ["Inter"],
+                    "headline-md": ["EB Garamond"],
+                    "display-lg": ["EB Garamond"],
+                    "label-caps": ["Inter"],
+                    "body-lg": ["Inter"],
+                    "headline-lg-mobile": ["EB Garamond"],
+                    "body-sm": ["Inter"]
+            },
+            "fontSize": {
+                    "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "600"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "500"}],
+                    "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "600"}],
+                    "label-caps": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "headline-lg-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "600"}],
+                    "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+        }
+        .celestial-bg {
+            background: radial-gradient(circle at top right, #ffdcbe, #fff8f5 60%);
+        }
+        .orb-glow {
+            box-shadow: 0 0 40px rgba(139, 80, 0, 0.15);
+        }
+        .spiritual-gradient {
+            background: linear-gradient(135deg, #8b5000 0%, #b02f00 100%);
+        }
+        .floating {
+            animation: floating 4s ease-in-out infinite;
+        }
+        @keyframes floating {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+        .typing-indicator span {
+            animation: blink 1.4s infinite both;
+        }
+        .typing-indicator span:nth-child(2) { animation-delay: 0.2s; }
+        .typing-indicator span:nth-child(3) { animation-delay: 0.4s; }
+        @keyframes blink {
+            0% { opacity: 0.1; }
+            20% { opacity: 1; }
+            100% { opacity: 0.1; }
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+<style>
+</style>
+<style id="astro-simple-side-navbar-style">
+/* Simple side navbar */
+.astro-side-navbar{position:fixed!important;left:0!important;top:0!important;bottom:0!important;width:230px!important;height:100vh!important;z-index:99999!important;background:#111827!important;border-right:1px solid rgba(255,255,255,.12)!important;box-shadow:8px 0 24px rgba(0,0,0,.18)!important;padding:18px 12px!important;box-sizing:border-box!important;font-family:Inter,Arial,sans-serif!important;overflow-y:auto!important}
+.astro-side-brand{display:block!important;color:#fff!important;text-decoration:none!important;font-size:18px!important;font-weight:800!important;line-height:1.25!important;padding:10px 12px 16px!important;margin-bottom:8px!important;border-bottom:1px solid rgba(255,255,255,.14)!important}
+.astro-side-links{display:flex!important;flex-direction:column!important;gap:6px!important}
+.astro-nav-link{display:block!important;color:#e5e7eb!important;text-decoration:none!important;font-size:14px!important;font-weight:600!important;line-height:1.2!important;padding:10px 12px!important;border-radius:10px!important;background:transparent!important;border:0!important;white-space:normal!important;box-shadow:none!important;transition:background .15s ease,color .15s ease!important}
+.astro-nav-link:hover{background:rgba(255,255,255,.10)!important;color:#fff!important;transform:none!important}
+.astro-nav-link.active{background:#f59e0b!important;color:#111827!important;font-weight:800!important}
+body{padding-left:230px!important;box-sizing:border-box!important}
+@media(max-width:760px){.astro-side-navbar{width:190px!important;padding:14px 9px!important}.astro-side-brand{font-size:16px!important}.astro-nav-link{font-size:13px!important;padding:9px 10px!important}body{padding-left:190px!important}}
+</style>
+</head>
+<body class="bg-background text-on-surface font-body-md min-h-screen overflow-hidden celestial-bg flex flex-col items-center justify-center">
+<!-- Simple side navbar -->
+<aside class="astro-side-navbar">
+  <a class="astro-side-brand" href="index.html">Astro Presentation</a>
+  <nav class="astro-side-links" aria-label="Main screens">
+    <a class="astro-nav-link" href="index.html" data-page="index.html">Home</a>
+    <a class="astro-nav-link" href="code1.html" data-page="code1.html">Mall</a>
+    <a class="astro-nav-link" href="code2.html" data-page="code2.html">Consultation</a>
+    <a class="astro-nav-link" href="code3.html" data-page="code3.html">Wallet</a>
+    <a class="astro-nav-link" href="code4.html" data-page="code4.html">Aetheric 1</a>
+    <a class="astro-nav-link" href="code5.html" data-page="code5.html">Aetheric 2</a>
+    <a class="astro-nav-link" href="code6.html" data-page="code6.html">Catalog</a>
+    <a class="astro-nav-link" href="code7.html" data-page="code7.html">Dashboard</a>
+    <a class="astro-nav-link" href="code8.html" data-page="code8.html">Kundli</a>
+    <a class="astro-nav-link" href="code9.html" data-page="code9.html">Pro Kundli</a>
+    <a class="astro-nav-link" href="code10.html" data-page="code10.html">AI Assistant</a>
+    <a class="astro-nav-link" href="code11.html" data-page="code11.html">AstroHub</a>
+    <a class="astro-nav-link" href="code12.html" data-page="code12.html">Community</a>
+    <a class="astro-nav-link" href="code13.html" data-page="code13.html">Screen 13</a>
+    <a class="astro-nav-link" href="code14.html" data-page="code14.html">Screen 14</a>
+    <a class="astro-nav-link" href="code15.html" data-page="code15.html">Live Consult</a>
+    <a class="astro-nav-link" href="code16.html" data-page="code16.html">Universal Wallet</a>
+  </nav>
+</aside>
+<!-- /Simple side navbar -->
+
+<!-- /Website style common navbar -->
+
+<!-- Top Navigation Suppression: Onboarding screen, so no global nav as per "The Destination Rule" -->
+<main class="relative z-10 w-full max-w-lg px-container-padding-mobile flex flex-col items-center gap-stack-lg">
+<!-- AI Avatar Hero -->
+<div class="relative w-48 h-48 md:w-56 md:h-56 floating">
+<div class="absolute inset-0 bg-primary-fixed rounded-full blur-3xl opacity-30 animate-pulse"></div>
+<div class="relative w-full h-full rounded-full p-1 border-2 border-primary/20 orb-glow bg-white flex items-center justify-center overflow-hidden">
+<img alt="Aetheric Assistant" class="w-4/5 h-4/5 object-contain" data-alt="A friendly, minimalist AI spiritual guide avatar designed as a sleek, modern robot with ethereal, glowing orange eyes and a warm, welcoming expression. The avatar is centered within a circular frame with soft light-mode cosmic energy swirling in the background, using a palette of soft primary orange and pristine whites. The overall style is high-end, clean, and digitally sacred, reflecting a trustworthy celestial guide." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDwDhEf0HGZrPiOJDvOlsqnKMyqP9AMazj-1b_xu8gSpCtyrEhbiJoQrWQWP6PcpxP4ahxyxRXLP8F6UZPj50R_uqGWN20g77uC6CmSrRV3au5ZpNDy3svvs-2E2bBUXLNkIRAz7wEorn0GFv9uZU6AToCDTon46-p-M-O6dcjI2FON6ANrT8Jx_YkCU_SgCp6icdLu9nPsZ1qfZQbkNuds7QX-rhO2rsOm2X_UOBgLzqzxe2SBvYXCF2loey4oWbtZc5o7hFyGbJo"/>
+</div>
+<!-- Decorative Planetary Orb -->
+<div class="absolute -top-4 -right-4 w-12 h-12 rounded-full spiritual-gradient orb-glow flex items-center justify-center">
+<span class="material-symbols-outlined text-white text-[20px]" data-icon="star">star</span>
+</div>
+</div>
+<!-- Chat Conversation Bubble -->
+<div class="glass-card rounded-3xl p-6 md:p-8 w-full shadow-2xl shadow-primary/5 flex flex-col gap-stack-md transition-all duration-700 ease-out transform translate-y-0 opacity-100">
+<div class="flex items-center gap-2 mb-2">
+<span class="text-primary font-bold font-label-caps text-label-caps tracking-widest">AETHERIC ASSISTANT</span>
+<div class="typing-indicator flex gap-1">
+<span class="w-1 h-1 bg-primary rounded-full"></span>
+<span class="w-1 h-1 bg-primary rounded-full"></span>
+<span class="w-1 h-1 bg-primary rounded-full"></span>
+</div>
+</div>
+<h1 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface leading-tight">
+                Welcome to Aetheric! I am your celestial guide.
+            </h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant leading-relaxed">
+                Let's begin your journey into the stars. Together, we'll unveil the cosmic blueprint written in your birth chart.
+            </p>
+<div class="mt-4 flex flex-col gap-3">
+<button class="spiritual-gradient text-white py-4 px-8 rounded-full font-bold text-lg shadow-lg hover:scale-[1.02] active:scale-95 transition-all flex items-center justify-center gap-3">
+                    Get Started
+                    <span class="material-symbols-outlined" data-icon="arrow_forward">arrow_forward</span>
+</button>
+<button class="bg-surface-container-low text-on-surface-variant py-4 px-8 rounded-full font-medium text-body-md hover:bg-surface-container-high transition-colors">
+                    Already a Seeker? Log in
+                </button>
+</div>
+</div>
+<!-- Micro-interaction Background Elements -->
+<div class="fixed top-20 -left-20 w-64 h-64 bg-secondary-container/10 rounded-full blur-[80px]"></div>
+<div class="fixed bottom-40 -right-20 w-80 h-80 bg-tertiary-container/10 rounded-full blur-[100px]"></div>
+</main>
+<!-- Footer Identity (Non-Nav) -->
+<footer class="fixed bottom-8 w-full text-center px-6">
+<p class="font-label-caps text-label-caps text-on-surface-variant/40 tracking-widest">
+            STAY ENLIGHTENED • ASTROCONNECT ECOSYSTEM
+        </p>
+</footer>
+<script>
+        // Micro-interactions for the "Get Started" button
+        const mainBtn = document.querySelector('button.spiritual-gradient');
+        mainBtn.addEventListener('mousemove', (e) => {
+            const rect = mainBtn.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            mainBtn.style.setProperty('--mouse-x', `${x}px`);
+            mainBtn.style.setProperty('--mouse-y', `${y}px`);
+        });
+
+        // Subtle entrance animation
+        document.addEventListener('DOMContentLoaded', () => {
+            const card = document.querySelector('.glass-card');
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(20px)';
+            
+            setTimeout(() => {
+                card.style.transition = 'all 0.8s cubic-bezier(0.16, 1, 0.3, 1)';
+                card.style.opacity = '1';
+                card.style.transform = 'translateY(0)';
+            }, 300);
+        });
+    </script>
+<!-- Background Stars Effect -->
+<div class="fixed inset-0 pointer-events-none z-0 overflow-hidden" id="star-field">
+<!-- JS would generate these for a more "precise" feel, but here are some static ones -->
+<div class="absolute top-1/4 left-1/4 w-1 h-1 bg-primary/20 rounded-full animate-pulse"></div>
+<div class="absolute top-1/3 right-1/3 w-2 h-2 bg-secondary/10 rounded-full animate-pulse" style="animation-delay: 1s"></div>
+<div class="absolute bottom-1/4 right-1/4 w-1 h-1 bg-tertiary/20 rounded-full animate-pulse" style="animation-delay: 2s"></div>
+<div class="absolute top-1/2 left-10 w-1 h-1 bg-primary/10 rounded-full animate-pulse"></div>
+</div>
+
+
+<script id="astro-active-nav-script">
+(function(){
+  var current=(location.pathname.split('/').pop()||'index.html').toLowerCase();
+  document.querySelectorAll('.astro-nav-link').forEach(function(a){
+    if((a.getAttribute('data-page')||'').toLowerCase()===current){a.classList.add('active');}
+  });
+})();
+</script>
+</body></html>

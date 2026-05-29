@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>AstroSaaS | Secure Wallet</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Playfair+Display:wght@600;700&amp;family=JetBrains+Mono:wght@500&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-effect {
+            backdrop-filter: blur(20px);
+            background: rgba(255, 255, 255, 0.1);
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container": "#edeeef",
+                        "status-available": "#10B981",
+                        "inverse-primary": "#ffb77d",
+                        "surface-variant": "#e1e3e4",
+                        "secondary-fixed": "#ffe16d",
+                        "on-tertiary": "#ffffff",
+                        "on-secondary-container": "#6e5c00",
+                        "primary-container": "#ff8c00",
+                        "on-error": "#ffffff",
+                        "on-primary-fixed-variant": "#6e3900",
+                        "secondary-fixed-dim": "#e9c400",
+                        "on-error-container": "#93000a",
+                        "primary-fixed": "#ffdcc3",
+                        "surface-container-high": "#e7e8e9",
+                        "on-tertiary-fixed-variant": "#3a4951",
+                        "on-secondary": "#ffffff",
+                        "on-secondary-fixed": "#221b00",
+                        "on-primary-fixed": "#2f1500",
+                        "outline": "#897362",
+                        "primary-fixed-dim": "#ffb77d",
+                        "secondary": "#705d00",
+                        "deep-navy": "#1A202C",
+                        "tertiary-container": "#9cacb6",
+                        "on-tertiary-fixed": "#0e1d25",
+                        "inverse-surface": "#2e3132",
+                        "on-tertiary-container": "#314048",
+                        "error": "#ba1a1a",
+                        "energy-yellow": "#FFD700",
+                        "primary": "#904d00",
+                        "on-surface": "#191c1d",
+                        "secondary-container": "#fcd400",
+                        "error-container": "#ffdad6",
+                        "tertiary": "#516169",
+                        "surface-bright": "#f8f9fa",
+                        "slate-gray": "#4A5568",
+                        "surface-container-low": "#f3f4f5",
+                        "on-primary": "#ffffff",
+                        "chart-line": "#E2E8F0",
+                        "surface-tint": "#904d00",
+                        "on-secondary-fixed-variant": "#544600",
+                        "surface-container-lowest": "#ffffff",
+                        "tertiary-fixed-dim": "#b9c9d3",
+                        "background": "#f8f9fa",
+                        "status-busy": "#F59E0B",
+                        "inverse-on-surface": "#f0f1f2",
+                        "surface-dim": "#d9dadb",
+                        "tertiary-fixed": "#d5e5ef",
+                        "sacred-orange": "#FF8C00",
+                        "on-primary-container": "#623200",
+                        "surface": "#f8f9fa",
+                        "outline-variant": "#ddc1ae",
+                        "on-background": "#191c1d",
+                        "on-surface-variant": "#564334",
+                        "surface-container-highest": "#e1e3e4"
+                    },
+                    "spacing": {
+                        "gutter": "24px",
+                        "margin-desktop": "40px",
+                        "margin-mobile": "16px",
+                        "stack-lg": "48px",
+                        "stack-md": "24px",
+                        "base": "8px",
+                        "stack-sm": "12px",
+                        "container-max": "1280px"
+                    },
+                    "fontFamily": {
+                        "body-sm": ["Inter"],
+                        "body-md": ["Inter"],
+                        "display-lg": ["Playfair Display"],
+                        "label-caps": ["Inter"],
+                        "headline-sm": ["Playfair Display"],
+                        "headline-md": ["Playfair Display"]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+<style>
+</style>
+<style id="astro-simple-side-navbar-style">
+/* Simple side navbar */
+.astro-side-navbar{position:fixed!important;left:0!important;top:0!important;bottom:0!important;width:230px!important;height:100vh!important;z-index:99999!important;background:#111827!important;border-right:1px solid rgba(255,255,255,.12)!important;box-shadow:8px 0 24px rgba(0,0,0,.18)!important;padding:18px 12px!important;box-sizing:border-box!important;font-family:Inter,Arial,sans-serif!important;overflow-y:auto!important}
+.astro-side-brand{display:block!important;color:#fff!important;text-decoration:none!important;font-size:18px!important;font-weight:800!important;line-height:1.25!important;padding:10px 12px 16px!important;margin-bottom:8px!important;border-bottom:1px solid rgba(255,255,255,.14)!important}
+.astro-side-links{display:flex!important;flex-direction:column!important;gap:6px!important}
+.astro-nav-link{display:block!important;color:#e5e7eb!important;text-decoration:none!important;font-size:14px!important;font-weight:600!important;line-height:1.2!important;padding:10px 12px!important;border-radius:10px!important;background:transparent!important;border:0!important;white-space:normal!important;box-shadow:none!important;transition:background .15s ease,color .15s ease!important}
+.astro-nav-link:hover{background:rgba(255,255,255,.10)!important;color:#fff!important;transform:none!important}
+.astro-nav-link.active{background:#f59e0b!important;color:#111827!important;font-weight:800!important}
+body{padding-left:230px!important;box-sizing:border-box!important}
+@media(max-width:760px){.astro-side-navbar{width:190px!important;padding:14px 9px!important}.astro-side-brand{font-size:16px!important}.astro-nav-link{font-size:13px!important;padding:9px 10px!important}body{padding-left:190px!important}}
+</style>
+</head>
+<body class="bg-surface font-body-md text-on-surface min-h-screen">
+<!-- Simple side navbar -->
+<aside class="astro-side-navbar">
+  <a class="astro-side-brand" href="index.html">Astro Presentation</a>
+  <nav class="astro-side-links" aria-label="Main screens">
+    <a class="astro-nav-link" href="index.html" data-page="index.html">Home</a>
+    <a class="astro-nav-link" href="code1.html" data-page="code1.html">Mall</a>
+    <a class="astro-nav-link" href="code2.html" data-page="code2.html">Consultation</a>
+    <a class="astro-nav-link" href="code3.html" data-page="code3.html">Wallet</a>
+    <a class="astro-nav-link" href="code4.html" data-page="code4.html">Aetheric 1</a>
+    <a class="astro-nav-link" href="code5.html" data-page="code5.html">Aetheric 2</a>
+    <a class="astro-nav-link" href="code6.html" data-page="code6.html">Catalog</a>
+    <a class="astro-nav-link" href="code7.html" data-page="code7.html">Dashboard</a>
+    <a class="astro-nav-link" href="code8.html" data-page="code8.html">Kundli</a>
+    <a class="astro-nav-link" href="code9.html" data-page="code9.html">Pro Kundli</a>
+    <a class="astro-nav-link" href="code10.html" data-page="code10.html">AI Assistant</a>
+    <a class="astro-nav-link" href="code11.html" data-page="code11.html">AstroHub</a>
+    <a class="astro-nav-link" href="code12.html" data-page="code12.html">Community</a>
+    <a class="astro-nav-link" href="code13.html" data-page="code13.html">Screen 13</a>
+    <a class="astro-nav-link" href="code14.html" data-page="code14.html">Screen 14</a>
+    <a class="astro-nav-link" href="code15.html" data-page="code15.html">Live Consult</a>
+    <a class="astro-nav-link" href="code16.html" data-page="code16.html">Universal Wallet</a>
+  </nav>
+</aside>
+<!-- /Simple side navbar -->
+
+<!-- /Website style common navbar -->
+
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 flex justify-between items-center px-4 md:px-margin-desktop h-16 bg-surface dark:bg-on-background border-b border-outline-variant shadow-sm">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-primary" data-icon="account_balance_wallet">account_balance_wallet</span>
+<h1 class="font-headline-sm text-headline-sm font-bold text-sacred-orange dark:text-primary-fixed-dim">AstroSaaS</h1>
+</div>
+<div class="flex items-center gap-4">
+<button class="flex items-center gap-2 px-4 py-1.5 rounded-full bg-surface-container-high text-primary font-semibold transition-colors hover:bg-surface-container active:scale-95 duration-200">
+<span class="text-label-caps font-label-caps">₹450</span>
+<span class="material-symbols-outlined text-[20px]" data-icon="add_circle">add_circle</span>
+</button>
+<div class="w-8 h-8 rounded-full overflow-hidden border border-outline-variant">
+<img alt="User profile picture" data-alt="A clean, professional studio headshot of a modern individual in a minimalist setting. The person has a friendly expression, illuminated by soft, high-key lighting that emphasizes a bright, light-mode aesthetic. The background is a solid, neutral gray that complements a sophisticated, corporate-modern design system with a premium SaaS feel." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC0mAjL4fSPfQByjJVTao3xQ1kF8KRYDL34ANy4oy7zkC1Wz_o5cpsFDgUnaJb2DaAamSLsbEHSH3LCa_g23NxR1mFihygN4HAm6-dgz7Vk6NL21KtX0OPpI1JfYUojYbHA7MivG4yuYtTA0nytWDsMoLSkws3VJDRbAxpN-ZB-ScD1BS6axXK3-OpsX1OJYq8ueyoNIHzkjZBpXdNCoSQ6cTc6J_755jwaFoq56bJhk9oOqJNIy5HICung_s9Uy6ZDvmP1cj4z3RI"/>
+</div>
+</div>
+</header>
+<main class="pt-24 pb-32 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter">
+<!-- Left Column: Balance & Recharge (Bento Column) -->
+<div class="lg:col-span-7 flex flex-col gap-stack-md">
+<!-- Wallet Balance Card -->
+<section class="relative overflow-hidden rounded-xl bg-white border border-outline-variant p-8 shadow-sm">
+<div class="absolute top-0 right-0 w-32 h-32 bg-sacred-orange/5 rounded-full -mr-16 -mt-16 blur-3xl"></div>
+<div class="relative z-10">
+<p class="font-label-caps text-label-caps text-on-surface-variant mb-2">CURRENT BALANCE</p>
+<div class="flex items-baseline gap-2">
+<span class="font-headline-md text-headline-md text-on-surface">₹450.00</span>
+<span class="font-body-sm text-body-sm text-status-available flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]" data-icon="verified">verified</span>
+                                Secure
+                            </span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-4">Estimated talk time: 12 mins with Premium Astrologers</p>
+</div>
+</section>
+<!-- Quick Recharge -->
+<section class="bg-white rounded-xl border border-outline-variant p-8 shadow-sm">
+<h2 class="font-headline-sm text-headline-sm text-on-surface mb-6">Recharge Wallet</h2>
+<div class="grid grid-cols-3 gap-4 mb-8">
+<button class="group flex flex-col items-center justify-center py-4 px-2 rounded-xl border border-outline-variant hover:border-sacred-orange hover:bg-surface-container-low transition-all active:scale-95">
+<span class="text-on-surface-variant group-hover:text-sacred-orange font-label-caps mb-1">Lite</span>
+<span class="font-bold text-body-lg">₹100</span>
+</button>
+<button class="group relative flex flex-col items-center justify-center py-4 px-2 rounded-xl border-2 border-sacred-orange bg-surface-container-lowest hover:bg-surface-container-low transition-all active:scale-95">
+<div class="absolute -top-3 px-2 bg-sacred-orange text-white text-[10px] font-bold rounded uppercase">Popular</div>
+<span class="text-on-surface-variant font-label-caps mb-1">Standard</span>
+<span class="font-bold text-body-lg">₹500</span>
+</button>
+<button class="group flex flex-col items-center justify-center py-4 px-2 rounded-xl border border-outline-variant hover:border-sacred-orange hover:bg-surface-container-low transition-all active:scale-95">
+<span class="text-on-surface-variant group-hover:text-sacred-orange font-label-caps mb-1">Premium</span>
+<span class="font-bold text-body-lg">₹1000</span>
+</button>
+</div>
+<div class="mb-8">
+<label class="block font-label-caps text-label-caps text-on-surface-variant mb-2">CUSTOM AMOUNT</label>
+<div class="relative">
+<span class="absolute left-4 top-1/2 -translate-y-1/2 text-on-surface-variant">₹</span>
+<input class="w-full pl-8 pr-4 py-3 rounded-lg border border-outline-variant focus:border-sacred-orange focus:ring-0 transition-colors" placeholder="Enter amount" type="number"/>
+</div>
+</div>
+<div class="space-y-4">
+<p class="font-label-caps text-label-caps text-on-surface-variant">SELECT PAYMENT METHOD</p>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<label class="flex items-center gap-4 p-4 rounded-lg border border-outline-variant cursor-pointer hover:bg-surface-container-low transition-colors">
+<input checked="" class="text-sacred-orange focus:ring-sacred-orange" name="payment" type="radio"/>
+<span class="material-symbols-outlined text-slate-gray" data-icon="account_balance">account_balance</span>
+<span class="font-body-md">UPI / Google Pay</span>
+</label>
+<label class="flex items-center gap-4 p-4 rounded-lg border border-outline-variant cursor-pointer hover:bg-surface-container-low transition-colors">
+<input class="text-sacred-orange focus:ring-sacred-orange" name="payment" type="radio"/>
+<span class="material-symbols-outlined text-slate-gray" data-icon="credit_card">credit_card</span>
+<span class="font-body-md">Credit / Debit Cards</span>
+</label>
+</div>
+</div>
+<button class="w-full mt-8 bg-sacred-orange hover:bg-primary transition-colors text-white font-bold py-4 rounded-xl flex items-center justify-center gap-2 shadow-lg shadow-sacred-orange/20 active:scale-[0.98]">
+<span class="material-symbols-outlined" data-icon="lock" data-weight="fill" style="font-variation-settings: 'FILL' 1;">lock</span>
+                        ADD MONEY SECURELY
+                    </button>
+<p class="text-center text-[10px] text-on-surface-variant mt-4 uppercase tracking-widest font-bold">Encrypted 256-bit SSL Transaction</p>
+</section>
+</div>
+<!-- Right Column: Transactions & Help -->
+<div class="lg:col-span-5 flex flex-col gap-stack-md">
+<!-- Transaction History -->
+<section class="bg-white rounded-xl border border-outline-variant p-6 shadow-sm flex-1">
+<div class="flex justify-between items-center mb-6">
+<h2 class="font-headline-sm text-headline-sm text-on-surface">Recent Activity</h2>
+<button class="text-primary font-label-caps text-label-caps hover:underline">VIEW ALL</button>
+</div>
+<div class="space-y-6">
+<!-- Transaction Item -->
+<div class="flex items-center justify-between group">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center">
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="history">history</span>
+</div>
+<div>
+<p class="font-body-md font-semibold text-on-surface">Consultation: Pandit K. Sharma</p>
+<p class="text-label-caps text-on-surface-variant">24 OCT 2023 • 10:45 AM</p>
+</div>
+</div>
+<div class="text-right">
+<p class="font-body-md font-bold text-error">- ₹120.00</p>
+<p class="text-[10px] text-status-available font-bold uppercase tracking-tighter">Success</p>
+</div>
+</div>
+<div class="flex items-center justify-between group">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-full bg-sacred-orange/10 flex items-center justify-center">
+<span class="material-symbols-outlined text-sacred-orange" data-icon="add">add</span>
+</div>
+<div>
+<p class="font-body-md font-semibold text-on-surface">Wallet Recharge</p>
+<p class="text-label-caps text-on-surface-variant">20 OCT 2023 • 03:20 PM</p>
+</div>
+</div>
+<div class="text-right">
+<p class="font-body-md font-bold text-status-available">+ ₹500.00</p>
+<p class="text-[10px] text-status-available font-bold uppercase tracking-tighter">Success</p>
+</div>
+</div>
+<div class="flex items-center justify-between group">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center">
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="shopping_bag">shopping_bag</span>
+</div>
+<div>
+<p class="font-body-md font-semibold text-on-surface">Gemstone Purchase: Ruby</p>
+<p class="text-label-caps text-on-surface-variant">15 OCT 2023 • 11:00 AM</p>
+</div>
+</div>
+<div class="text-right">
+<p class="font-body-md font-bold text-error">- ₹4,500.00</p>
+<p class="text-[10px] text-status-available font-bold uppercase tracking-tighter">Success</p>
+</div>
+</div>
+<div class="flex items-center justify-between group">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center">
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="history">history</span>
+</div>
+<div>
+<p class="font-body-md font-semibold text-on-surface">Consultation: Acharya Raj</p>
+<p class="text-label-caps text-on-surface-variant">12 OCT 2023 • 06:15 PM</p>
+</div>
+</div>
+<div class="text-right">
+<p class="font-body-md font-bold text-error">- ₹150.00</p>
+<p class="text-[10px] text-status-available font-bold uppercase tracking-tighter">Success</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Help/Offers Card -->
+<div class="rounded-xl overflow-hidden bg-deep-navy p-6 relative">
+<div class="absolute inset-0 opacity-10 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-sacred-orange via-transparent to-transparent"></div>
+<div class="relative z-10 text-white">
+<h3 class="font-headline-sm text-headline-sm mb-2">Need assistance?</h3>
+<p class="text-body-sm opacity-80 mb-4">Our spiritual support team is available 24/7 to help with your transactions.</p>
+<button class="flex items-center gap-2 font-label-caps text-label-caps text-energy-yellow hover:text-white transition-colors">
+                            CONTACT SUPPORT
+                            <span class="material-symbols-outlined text-[16px]" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-2 py-3 bg-surface dark:bg-on-background border-t border-outline-variant shadow-lg md:hidden">
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-surface-variant px-3 py-1 hover:text-primary transition-all active:scale-90 duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+<span class="font-label-caps text-label-caps">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-surface-variant px-3 py-1 hover:text-primary transition-all active:scale-90 duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="chat_bubble">chat_bubble</span>
+<span class="font-label-caps text-label-caps">Consult</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-surface-variant px-3 py-1 hover:text-primary transition-all active:scale-90 duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="shopping_bag">shopping_bag</span>
+<span class="font-label-caps text-label-caps">Mall</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-primary-container dark:bg-primary text-on-primary-container dark:text-on-primary rounded-xl px-3 py-1 active:scale-90 transition-all duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="account_circle">account_circle</span>
+<span class="font-label-caps text-label-caps">Profile</span>
+</a>
+</nav>
+<script>
+        // Micro-interactions
+        document.querySelectorAll('button').forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Subtle haptic feel could go here
+            });
+        });
+
+        // Animation for the recharge balance card on load
+        window.addEventListener('DOMContentLoaded', () => {
+            const card = document.querySelector('section');
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(10px)';
+            setTimeout(() => {
+                card.style.transition = 'all 0.6s cubic-bezier(0.16, 1, 0.3, 1)';
+                card.style.opacity = '1';
+                card.style.transform = 'translateY(0)';
+            }, 100);
+        });
+    </script>
+
+
+<script id="astro-active-nav-script">
+(function(){
+  var current=(location.pathname.split('/').pop()||'index.html').toLowerCase();
+  document.querySelectorAll('.astro-nav-link').forEach(function(a){
+    if((a.getAttribute('data-page')||'').toLowerCase()===current){a.classList.add('active');}
+  });
+})();
+</script>
+</body></html>

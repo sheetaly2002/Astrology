@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>AstroConnect | Universal Wallet</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500;600;700&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-variant": "#f1dfd1",
+                    "on-tertiary-fixed": "#3b0900",
+                    "surface-container-high": "#f7e5d7",
+                    "on-tertiary-container": "#812000",
+                    "surface-tint": "#8b5000",
+                    "tertiary-container": "#ff9441",
+                    "on-primary-container": "#653900",
+                    "secondary": "#785900",
+                    "primary": "#8b5000",
+                    "on-secondary-fixed": "#261a00",
+                    "on-error-container": "#93000a",
+                    "on-secondary-fixed-variant": "#5b4300",
+                    "background": "#fff8f5",
+                    "primary-fixed-dim": "#ffb870",
+                    "tertiary": "#b02f00",
+                    "secondary-fixed": "#ffdf9e",
+                    "on-surface": "#231a11",
+                    "surface-dim": "#e9d7c9",
+                    "outline-variant": "#dbc2ad",
+                    "on-secondary-container": "#6c5000",
+                    "tertiary-fixed-dim": "#ffb5a0",
+                    "primary-container": "#ff9800",
+                    "on-surface-variant": "#554434",
+                    "secondary-container": "#fdc003",
+                    "surface-container-highest": "#f1dfd1",
+                    "primary-fixed": "#ffdcbe",
+                    "error-container": "#ffdad6",
+                    "surface-container": "#fdebdc",
+                    "on-tertiary": "#ffffff",
+                    "secondary-fixed-dim": "#fabd00",
+                    "inverse-on-surface": "#ffeee1",
+                    "on-primary-fixed": "#2c1600",
+                    "surface-container-lowest": "#ffffff",
+                    "surface-bright": "#fff8f5",
+                    "error": "#ba1a1a",
+                    "surface-container-low": "#fff1e7",
+                    "surface": "#fff8f5",
+                    "outline": "#887361",
+                    "on-primary": "#ffffff",
+                    "tertiary-fixed": "#ffdbd1",
+                    "inverse-surface": "#392e25",
+                    "on-secondary": "#ffffff",
+                    "on-primary-fixed-variant": "#693c00",
+                    "on-background": "#231a11",
+                    "on-error": "#ffffff",
+                    "inverse-primary": "#ffb870",
+                    "on-tertiary-fixed-variant": "#862200"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "container-padding-desktop": "40px",
+                    "unit": "8px",
+                    "container-padding-mobile": "20px",
+                    "stack-sm": "8px",
+                    "gutter": "16px",
+                    "stack-md": "16px",
+                    "stack-lg": "32px"
+            },
+            "fontFamily": {
+                    "headline-lg": ["EB Garamond"],
+                    "body-md": ["Inter"],
+                    "headline-md": ["EB Garamond"],
+                    "display-lg": ["EB Garamond"],
+                    "label-caps": ["Inter"],
+                    "body-lg": ["Inter"],
+                    "headline-lg-mobile": ["EB Garamond"],
+                    "body-sm": ["Inter"]
+            },
+            "fontSize": {
+                    "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "600"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "500"}],
+                    "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "600"}],
+                    "label-caps": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "headline-lg-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "600"}],
+                    "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+        }
+        .spiritual-gradient {
+            background: linear-gradient(135deg, #8b5000 0%, #b02f00 100%);
+        }
+        .orb-glow {
+            box-shadow: 0px 4px 24px rgba(255, 152, 0, 0.15);
+        }
+        body {
+            background-color: #fff8f5;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+<style>
+</style>
+<style id="astro-simple-side-navbar-style">
+/* Simple side navbar */
+.astro-side-navbar{position:fixed!important;left:0!important;top:0!important;bottom:0!important;width:230px!important;height:100vh!important;z-index:99999!important;background:#111827!important;border-right:1px solid rgba(255,255,255,.12)!important;box-shadow:8px 0 24px rgba(0,0,0,.18)!important;padding:18px 12px!important;box-sizing:border-box!important;font-family:Inter,Arial,sans-serif!important;overflow-y:auto!important}
+.astro-side-brand{display:block!important;color:#fff!important;text-decoration:none!important;font-size:18px!important;font-weight:800!important;line-height:1.25!important;padding:10px 12px 16px!important;margin-bottom:8px!important;border-bottom:1px solid rgba(255,255,255,.14)!important}
+.astro-side-links{display:flex!important;flex-direction:column!important;gap:6px!important}
+.astro-nav-link{display:block!important;color:#e5e7eb!important;text-decoration:none!important;font-size:14px!important;font-weight:600!important;line-height:1.2!important;padding:10px 12px!important;border-radius:10px!important;background:transparent!important;border:0!important;white-space:normal!important;box-shadow:none!important;transition:background .15s ease,color .15s ease!important}
+.astro-nav-link:hover{background:rgba(255,255,255,.10)!important;color:#fff!important;transform:none!important}
+.astro-nav-link.active{background:#f59e0b!important;color:#111827!important;font-weight:800!important}
+body{padding-left:230px!important;box-sizing:border-box!important}
+@media(max-width:760px){.astro-side-navbar{width:190px!important;padding:14px 9px!important}.astro-side-brand{font-size:16px!important}.astro-nav-link{font-size:13px!important;padding:9px 10px!important}body{padding-left:190px!important}}
+</style>
+</head>
+<body class="font-body-md text-on-background selection:bg-primary-container">
+<!-- Simple side navbar -->
+<aside class="astro-side-navbar">
+  <a class="astro-side-brand" href="index.html">Astro Presentation</a>
+  <nav class="astro-side-links" aria-label="Main screens">
+    <a class="astro-nav-link" href="index.html" data-page="index.html">Home</a>
+    <a class="astro-nav-link" href="code1.html" data-page="code1.html">Mall</a>
+    <a class="astro-nav-link" href="code2.html" data-page="code2.html">Consultation</a>
+    <a class="astro-nav-link" href="code3.html" data-page="code3.html">Wallet</a>
+    <a class="astro-nav-link" href="code4.html" data-page="code4.html">Aetheric 1</a>
+    <a class="astro-nav-link" href="code5.html" data-page="code5.html">Aetheric 2</a>
+    <a class="astro-nav-link" href="code6.html" data-page="code6.html">Catalog</a>
+    <a class="astro-nav-link" href="code7.html" data-page="code7.html">Dashboard</a>
+    <a class="astro-nav-link" href="code8.html" data-page="code8.html">Kundli</a>
+    <a class="astro-nav-link" href="code9.html" data-page="code9.html">Pro Kundli</a>
+    <a class="astro-nav-link" href="code10.html" data-page="code10.html">AI Assistant</a>
+    <a class="astro-nav-link" href="code11.html" data-page="code11.html">AstroHub</a>
+    <a class="astro-nav-link" href="code12.html" data-page="code12.html">Community</a>
+    <a class="astro-nav-link" href="code13.html" data-page="code13.html">Screen 13</a>
+    <a class="astro-nav-link" href="code14.html" data-page="code14.html">Screen 14</a>
+    <a class="astro-nav-link" href="code15.html" data-page="code15.html">Live Consult</a>
+    <a class="astro-nav-link" href="code16.html" data-page="code16.html">Universal Wallet</a>
+  </nav>
+</aside>
+<!-- /Simple side navbar -->
+
+<!-- /Website style common navbar -->
+
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-surface/80 dark:bg-surface-dim/80 backdrop-blur-xl border-b border-outline-variant/30 dark:border-outline/20 shadow-sm shadow-primary/5 h-16 flex justify-between items-center px-container-padding-mobile">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-primary-container flex items-center justify-center overflow-hidden">
+<img alt="Profile" class="w-full h-full object-cover" data-alt="A professional, high-resolution headshot of a serene person with a soft, warm lighting setup. The background is a clean, minimalist spiritual studio with subtle golden accents and blurred botanical elements. The overall aesthetic is modern, tranquil, and trustworthy, fitting a premium digital astrology ecosystem." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDztDxTxW0qHtLmavYzPHa851mI49Rn31cNNRy1eUQ5UGRBFweN-h5trkoa0m47K5pOXZzlfXmjoAPZvi563l74nk7hJyta5VaiwIqSiVur6McS7FZdYkWBfpmHl58ozDv53ronQ300jBmTVLjDV7S2t_X0e5qvRZUQClWX2Z8nKRcpVkAJWACH8-sgFtUP-zsTEBo4ziX3ubxCdaFe-02ALSej8lQyrHGJ_UFu5uLvqzBaZQfvrv-O_oZNjYunjNZrIxAJ4DfQzG0"/>
+</div>
+<h1 class="font-headline-md text-headline-md font-bold text-primary dark:text-primary-fixed-dim">AstroConnect</h1>
+</div>
+<div class="flex items-center">
+<div class="bg-surface-container-low px-4 py-1.5 rounded-full border border-primary-container/20 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[18px]">account_balance_wallet</span>
+<span class="font-label-caps text-label-caps text-on-surface">₹1,250</span>
+</div>
+</div>
+</header>
+<main class="pt-24 pb-32 px-container-padding-mobile max-w-4xl mx-auto">
+<!-- Wallet Canvas -->
+<div class="space-y-stack-lg">
+<!-- Balance Card -->
+<section class="glass-card rounded-3xl p-8 flex flex-col items-center justify-center relative overflow-hidden orb-glow">
+<div class="absolute -top-12 -right-12 w-48 h-48 bg-primary/5 rounded-full blur-3xl"></div>
+<div class="absolute -bottom-12 -left-12 w-48 h-48 bg-secondary/5 rounded-full blur-3xl"></div>
+<p class="font-label-caps text-label-caps text-on-surface-variant mb-2">CURRENT BALANCE</p>
+<h2 class="font-display-lg text-display-lg text-primary mb-1">₹1,250.00</h2>
+<div class="flex items-center gap-2 text-on-surface-variant/70 font-body-sm">
+<span class="material-symbols-outlined text-sm">verified_user</span>
+<span>Secure Spiritual Vault</span>
+</div>
+</section>
+<!-- Quick Recharge Section -->
+<section>
+<div class="flex items-center justify-between mb-stack-md">
+<h3 class="font-headline-md text-headline-md text-on-surface">Quick Recharge</h3>
+<button class="text-primary font-label-caps text-label-caps hover:underline transition-all">CUSTOM AMOUNT</button>
+</div>
+<div class="grid grid-cols-3 gap-gutter">
+<button class="flex flex-col items-center justify-center p-6 rounded-2xl border-2 border-primary-container/20 bg-surface hover:border-primary hover:bg-primary/5 transition-all group active:scale-95 duration-150">
+<span class="font-label-caps text-label-caps text-on-surface-variant group-hover:text-primary">LITE</span>
+<span class="font-headline-md text-headline-md text-on-surface">₹100</span>
+</button>
+<button class="flex flex-col items-center justify-center p-6 rounded-2xl border-2 border-primary spiritual-gradient text-on-primary shadow-lg shadow-primary/20 active:scale-95 duration-150">
+<span class="font-label-caps text-label-caps opacity-80">POPULAR</span>
+<span class="font-headline-md text-headline-md">₹500</span>
+</button>
+<button class="flex flex-col items-center justify-center p-6 rounded-2xl border-2 border-primary-container/20 bg-surface hover:border-primary hover:bg-primary/5 transition-all group active:scale-95 duration-150">
+<span class="font-label-caps text-label-caps text-on-surface-variant group-hover:text-primary">PRO</span>
+<span class="font-headline-md text-headline-md text-on-surface">₹1000</span>
+</button>
+</div>
+</section>
+<!-- Refer & Earn Banner -->
+<section class="relative rounded-3xl bg-on-surface text-surface overflow-hidden p-6 flex items-center gap-6">
+<img alt="Invite Friends" class="absolute right-0 top-0 h-full w-1/3 object-cover opacity-40 grayscale" data-alt="A stylized digital art piece depicting a golden sun rising over a minimalist desert horizon. The colors are dominated by warm oranges and deep charcoals, representing enlightenment and shared discovery. The mood is inspiring and expansive, designed to encourage users to invite friends into a premium astrology experience." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC-_9l7ks299_CX1K3WknFWEzmoFKe9TwjPkhOzI3f3AlCxcGQmcR8edZ5uWi2HfYJ0e8p7nt5mOfzN94azjxPfbd29zoWw0_VzsMfDLQuz5uPJxQqGa0ekNDzXG1BB4LE_bn9KZpRPp1irB0jF1QepxrJQwDPmkJnCunhg2qDwRF8_LDQRBpBN0DLfPcB-OIfG7wvb5Wm9IlyTk0ibfZJusYYKaCkDAoC3jpmZMRALqweuB-0586HIvU3rOgaPn8mTxc-miosuqXc"/>
+<div class="relative z-10 flex-1">
+<h4 class="font-headline-md text-headline-md mb-2">Share the Wisdom</h4>
+<p class="font-body-sm text-surface/80 max-w-[60%] mb-4">Refer a friend and both of you get ₹50 credit for your next reading.</p>
+<button class="bg-primary text-on-primary px-6 py-2 rounded-full font-label-caps text-label-caps flex items-center gap-2 hover:bg-tertiary transition-colors">
+                        REFER NOW <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</button>
+</div>
+</section>
+<!-- Payment Methods -->
+<section>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-stack-md">Preferred Payment Methods</h3>
+<div class="flex flex-wrap gap-4">
+<div class="flex items-center gap-3 px-5 py-4 bg-surface-container rounded-2xl border border-outline-variant/30 flex-1 min-w-[140px] hover:border-primary transition-all cursor-pointer">
+<span class="material-symbols-outlined text-primary">account_balance</span>
+<span class="font-body-md font-medium">UPI</span>
+</div>
+<div class="flex items-center gap-3 px-5 py-4 bg-surface-container rounded-2xl border border-outline-variant/30 flex-1 min-w-[140px] hover:border-primary transition-all cursor-pointer">
+<span class="material-symbols-outlined text-primary">credit_card</span>
+<span class="font-body-md font-medium">Cards</span>
+</div>
+<div class="flex items-center gap-3 px-5 py-4 bg-surface-container rounded-2xl border border-outline-variant/30 flex-1 min-w-[140px] hover:border-primary transition-all cursor-pointer">
+<span class="material-symbols-outlined text-primary">language</span>
+<span class="font-body-md font-medium">Net Banking</span>
+</div>
+</div>
+</section>
+<!-- Transaction History -->
+<section>
+<div class="flex items-center justify-between mb-stack-md">
+<h3 class="font-headline-md text-headline-md text-on-surface">Recent Transactions</h3>
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer hover:text-primary transition-all">filter_list</span>
+</div>
+<div class="space-y-stack-sm">
+<!-- Item 1 -->
+<div class="flex items-center justify-between p-4 bg-white rounded-2xl border border-outline-variant/20 hover:shadow-md transition-shadow">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-xl bg-primary-container/10 flex items-center justify-center">
+<span class="material-symbols-outlined text-primary">chat_bubble</span>
+</div>
+<div>
+<h5 class="font-body-md font-semibold">Consultation: Vedic Reading</h5>
+<p class="font-body-sm text-on-surface-variant">Yesterday, 4:20 PM • ID: #TRX9021</p>
+</div>
+</div>
+<span class="font-body-lg font-semibold text-error">- ₹350</span>
+</div>
+<!-- Item 2 -->
+<div class="flex items-center justify-between p-4 bg-white rounded-2xl border border-outline-variant/20 hover:shadow-md transition-shadow">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-xl bg-secondary-container/10 flex items-center justify-center">
+<span class="material-symbols-outlined text-secondary">add_card</span>
+</div>
+<div>
+<h5 class="font-body-md font-semibold">Wallet Recharge</h5>
+<p class="font-body-sm text-on-surface-variant">12 Oct 2023, 10:15 AM • UPI</p>
+</div>
+</div>
+<span class="font-body-lg font-semibold text-green-600">+ ₹500</span>
+</div>
+<!-- Item 3 -->
+<div class="flex items-center justify-between p-4 bg-white rounded-2xl border border-outline-variant/20 hover:shadow-md transition-shadow">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-xl bg-tertiary-container/10 flex items-center justify-center">
+<span class="material-symbols-outlined text-tertiary">shopping_bag</span>
+</div>
+<div>
+<h5 class="font-body-md font-semibold">AstroMall: Gemstone Pendant</h5>
+<p class="font-body-sm text-on-surface-variant">08 Oct 2023, 11:00 AM • ID: #TRX8842</p>
+</div>
+</div>
+<span class="font-body-lg font-semibold text-error">- ₹899</span>
+</div>
+</div>
+<button class="w-full mt-6 py-3 font-label-caps text-label-caps text-on-surface-variant bg-surface-container-low rounded-xl border border-outline-variant/20 hover:bg-surface-container transition-all">
+                    VIEW FULL HISTORY
+                </button>
+</section>
+</div>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 w-full z-50 bg-surface/90 dark:bg-surface-container-lowest/90 backdrop-blur-xl border-t border-outline-variant/30 shadow-[0_-4px_20px_rgba(139,80,0,0.08)] rounded-t-xl h-20 px-2 pb-safe flex justify-around items-center">
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline p-2 hover:text-primary transition-all" href="#">
+<span class="material-symbols-outlined">home</span>
+<span class="font-label-caps text-label-caps">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline p-2 hover:text-primary transition-all" href="#">
+<span class="material-symbols-outlined">chat_bubble</span>
+<span class="font-label-caps text-label-caps">Consult</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline p-2 hover:text-primary transition-all" href="#">
+<span class="material-symbols-outlined">shopping_bag</span>
+<span class="font-label-caps text-label-caps">Mall</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline p-2 hover:text-primary transition-all" href="#">
+<span class="material-symbols-outlined">auto_graph</span>
+<span class="font-label-caps text-label-caps">Charts</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container dark:bg-primary dark:text-on-primary rounded-full px-4 py-1 scale-110 duration-200 ease-out" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">account_balance_wallet</span>
+<span class="font-label-caps text-label-caps">Wallet</span>
+</a>
+</nav>
+<script>
+        // Simple micro-interaction for quick recharge selection
+        document.querySelectorAll('section:nth-of-type(2) button').forEach(btn => {
+            btn.addEventListener('click', function() {
+                document.querySelectorAll('section:nth-of-type(2) button').forEach(b => {
+                    b.classList.remove('spiritual-gradient', 'text-on-primary', 'shadow-lg', 'shadow-primary/20', 'border-primary');
+                    b.classList.add('bg-surface', 'border-primary-container/20');
+                });
+                this.classList.add('spiritual-gradient', 'text-on-primary', 'shadow-lg', 'shadow-primary/20', 'border-primary');
+                this.classList.remove('bg-surface', 'border-primary-container/20');
+            });
+        });
+    </script>
+
+
+<script id="astro-active-nav-script">
+(function(){
+  var current=(location.pathname.split('/').pop()||'index.html').toLowerCase();
+  document.querySelectorAll('.astro-nav-link').forEach(function(a){
+    if((a.getAttribute('data-page')||'').toLowerCase()===current){a.classList.add('active');}
+  });
+})();
+</script>
+</body></html>

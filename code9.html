@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>AstroSaaS | Professional Janam Kundli Generator</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Playfair+Display:wght@600;700&amp;family=JetBrains+Mono:wght@500&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-container": "#edeeef",
+                    "status-available": "#10B981",
+                    "inverse-primary": "#ffb77d",
+                    "surface-variant": "#e1e3e4",
+                    "secondary-fixed": "#ffe16d",
+                    "on-tertiary": "#ffffff",
+                    "on-secondary-container": "#6e5c00",
+                    "primary-container": "#ff8c00",
+                    "on-error": "#ffffff",
+                    "on-primary-fixed-variant": "#6e3900",
+                    "secondary-fixed-dim": "#e9c400",
+                    "on-error-container": "#93000a",
+                    "primary-fixed": "#ffdcc3",
+                    "surface-container-high": "#e7e8e9",
+                    "on-tertiary-fixed-variant": "#3a4951",
+                    "on-secondary": "#ffffff",
+                    "on-secondary-fixed": "#221b00",
+                    "on-primary-fixed": "#2f1500",
+                    "outline": "#897362",
+                    "primary-fixed-dim": "#ffb77d",
+                    "secondary": "#705d00",
+                    "deep-navy": "#1A202C",
+                    "tertiary-container": "#9cacb6",
+                    "on-tertiary-fixed": "#0e1d25",
+                    "inverse-surface": "#2e3132",
+                    "on-tertiary-container": "#314048",
+                    "error": "#ba1a1a",
+                    "energy-yellow": "#FFD700",
+                    "primary": "#904d00",
+                    "on-surface": "#191c1d",
+                    "secondary-container": "#fcd400",
+                    "error-container": "#ffdad6",
+                    "tertiary": "#516169",
+                    "surface-bright": "#f8f9fa",
+                    "slate-gray": "#4A5568",
+                    "surface-container-low": "#f3f4f5",
+                    "on-primary": "#ffffff",
+                    "chart-line": "#E2E8F0",
+                    "surface-tint": "#904d00",
+                    "on-secondary-fixed-variant": "#544600",
+                    "surface-container-lowest": "#ffffff",
+                    "tertiary-fixed-dim": "#b9c9d3",
+                    "background": "#f8f9fa",
+                    "status-busy": "#F59E0B",
+                    "inverse-on-surface": "#f0f1f2",
+                    "surface-dim": "#d9dadb",
+                    "tertiary-fixed": "#d5e5ef",
+                    "sacred-orange": "#FF8C00",
+                    "on-primary-container": "#623200",
+                    "surface": "#f8f9fa",
+                    "outline-variant": "#ddc1ae",
+                    "on-background": "#191c1d",
+                    "on-surface-variant": "#564334",
+                    "surface-container-highest": "#e1e3e4"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "gutter": "24px",
+                    "margin-desktop": "40px",
+                    "margin-mobile": "16px",
+                    "stack-lg": "48px",
+                    "stack-md": "24px",
+                    "base": "8px",
+                    "stack-sm": "12px",
+                    "container-max": "1280px"
+            },
+            "fontFamily": {
+                    "body-sm": ["Inter"],
+                    "body-md": ["Inter"],
+                    "display-lg-mobile": ["Playfair Display"],
+                    "data-mono": ["JetBrains Mono"],
+                    "label-caps": ["Inter"],
+                    "headline-sm": ["Playfair Display"],
+                    "display-lg": ["Playfair Display"],
+                    "body-lg": ["Inter"],
+                    "headline-md": ["Playfair Display"]
+            },
+            "fontSize": {
+                    "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "display-lg-mobile": ["36px", {"lineHeight": "44px", "fontWeight": "700"}],
+                    "data-mono": ["14px", {"lineHeight": "20px", "fontWeight": "500"}],
+                    "label-caps": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "headline-sm": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "headline-md": ["32px", {"lineHeight": "40px", "fontWeight": "600"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .kundli-grid {
+            aspect-ratio: 1/1;
+            position: relative;
+            background: #ffffff;
+            border: 1.5px solid #E2E8F0;
+        }
+        .kundli-line {
+            position: absolute;
+            background-color: #E2E8F0;
+            z-index: 1;
+        }
+        .house-number {
+            position: absolute;
+            font-size: 0.75rem;
+            color: #94A3B8;
+            font-weight: 600;
+            z-index: 2;
+        }
+        .planet-tag {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.8rem;
+            color: #1A202C;
+            padding: 2px 4px;
+            background: rgba(255, 140, 0, 0.05);
+            border-radius: 4px;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+<style>
+</style>
+<style id="astro-simple-side-navbar-style">
+/* Simple side navbar */
+.astro-side-navbar{position:fixed!important;left:0!important;top:0!important;bottom:0!important;width:230px!important;height:100vh!important;z-index:99999!important;background:#111827!important;border-right:1px solid rgba(255,255,255,.12)!important;box-shadow:8px 0 24px rgba(0,0,0,.18)!important;padding:18px 12px!important;box-sizing:border-box!important;font-family:Inter,Arial,sans-serif!important;overflow-y:auto!important}
+.astro-side-brand{display:block!important;color:#fff!important;text-decoration:none!important;font-size:18px!important;font-weight:800!important;line-height:1.25!important;padding:10px 12px 16px!important;margin-bottom:8px!important;border-bottom:1px solid rgba(255,255,255,.14)!important}
+.astro-side-links{display:flex!important;flex-direction:column!important;gap:6px!important}
+.astro-nav-link{display:block!important;color:#e5e7eb!important;text-decoration:none!important;font-size:14px!important;font-weight:600!important;line-height:1.2!important;padding:10px 12px!important;border-radius:10px!important;background:transparent!important;border:0!important;white-space:normal!important;box-shadow:none!important;transition:background .15s ease,color .15s ease!important}
+.astro-nav-link:hover{background:rgba(255,255,255,.10)!important;color:#fff!important;transform:none!important}
+.astro-nav-link.active{background:#f59e0b!important;color:#111827!important;font-weight:800!important}
+body{padding-left:230px!important;box-sizing:border-box!important}
+@media(max-width:760px){.astro-side-navbar{width:190px!important;padding:14px 9px!important}.astro-side-brand{font-size:16px!important}.astro-nav-link{font-size:13px!important;padding:9px 10px!important}body{padding-left:190px!important}}
+</style>
+</head>
+<body class="bg-surface text-on-surface font-body-md min-h-screen">
+<!-- Simple side navbar -->
+<aside class="astro-side-navbar">
+  <a class="astro-side-brand" href="index.html">Astro Presentation</a>
+  <nav class="astro-side-links" aria-label="Main screens">
+    <a class="astro-nav-link" href="index.html" data-page="index.html">Home</a>
+    <a class="astro-nav-link" href="code1.html" data-page="code1.html">Mall</a>
+    <a class="astro-nav-link" href="code2.html" data-page="code2.html">Consultation</a>
+    <a class="astro-nav-link" href="code3.html" data-page="code3.html">Wallet</a>
+    <a class="astro-nav-link" href="code4.html" data-page="code4.html">Aetheric 1</a>
+    <a class="astro-nav-link" href="code5.html" data-page="code5.html">Aetheric 2</a>
+    <a class="astro-nav-link" href="code6.html" data-page="code6.html">Catalog</a>
+    <a class="astro-nav-link" href="code7.html" data-page="code7.html">Dashboard</a>
+    <a class="astro-nav-link" href="code8.html" data-page="code8.html">Kundli</a>
+    <a class="astro-nav-link" href="code9.html" data-page="code9.html">Pro Kundli</a>
+    <a class="astro-nav-link" href="code10.html" data-page="code10.html">AI Assistant</a>
+    <a class="astro-nav-link" href="code11.html" data-page="code11.html">AstroHub</a>
+    <a class="astro-nav-link" href="code12.html" data-page="code12.html">Community</a>
+    <a class="astro-nav-link" href="code13.html" data-page="code13.html">Screen 13</a>
+    <a class="astro-nav-link" href="code14.html" data-page="code14.html">Screen 14</a>
+    <a class="astro-nav-link" href="code15.html" data-page="code15.html">Live Consult</a>
+    <a class="astro-nav-link" href="code16.html" data-page="code16.html">Universal Wallet</a>
+  </nav>
+</aside>
+<!-- /Simple side navbar -->
+
+<!-- /Website style common navbar -->
+
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 flex justify-between items-center px-4 md:px-40 h-16 bg-surface border-b border-outline-variant shadow-sm">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-primary">auto_awesome</span>
+<h1 class="font-headline-sm text-headline-sm font-bold text-sacred-orange">AstroSaaS</h1>
+</div>
+<div class="hidden md:flex items-center gap-8">
+<a class="text-primary font-semibold font-body-md" href="#">Home</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-body-md" href="#">Consult</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-body-md" href="#">Mall</a>
+</div>
+<div class="flex items-center gap-4">
+<div class="bg-primary-container/10 px-3 py-1 rounded-full text-on-primary-container font-label-caps flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px]">account_balance_wallet</span>
+<span>₹450</span>
+</div>
+<div class="w-8 h-8 rounded-full overflow-hidden border border-outline">
+<img alt="Profile" data-alt="A professional studio portrait of a confident man with a warm smile, styled in a minimalist business-casual aesthetic. The lighting is soft and flattering against a neutral, high-key white background, echoing a clean SaaS corporate identity. High resolution, sharp focus, with subtle warm skin tones that blend with the spiritual professional theme." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDYwJO_uvTrJtNP7A-erM64I2hYSn_mKzP09Hs8Spnq2bYuTxDQhf2Jy-9d8MtWQK56oKqyo1kSOktVkiVKFyr1L78BKEE9guUFCzVXVBcmrz9htA68hScc4eFPQlj4fvCJni80XeDRShNBLPMjUBMnSOkHWy1-hMcm_Y7l8YpvUzofsL7uMmL3gWQERzM-0Jo4b0jOLo1gQjqxdxtsfgHz9UqHKb0YBBQqQ5Dh23NQfK-MLWsZJuNeirHO2NG2AEPz8wojIZ_MIyQ"/>
+</div>
+</div>
+</header>
+<main class="pt-24 pb-32 px-4 md:px-margin-desktop max-w-container-max mx-auto">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter">
+<!-- Left Column: Birth Input Form -->
+<section class="lg:col-span-4 space-y-stack-md">
+<div class="bg-surface-container-lowest p-6 rounded-xl border border-outline-variant shadow-sm">
+<div class="flex items-center gap-2 mb-6">
+<span class="material-symbols-outlined text-sacred-orange">person_add</span>
+<h2 class="font-headline-sm text-headline-sm text-deep-navy">Birth Details</h2>
+</div>
+<form class="space-y-4">
+<div class="space-y-1">
+<label class="font-label-caps text-label-caps text-on-surface-variant uppercase">Full Name</label>
+<input class="w-full px-4 py-3 rounded-lg border border-outline-variant focus:border-sacred-orange focus:ring-1 focus:ring-sacred-orange bg-surface-bright outline-none transition-all" placeholder="e.g. Siddharth Sharma" type="text"/>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<div class="space-y-1">
+<label class="font-label-caps text-label-caps text-on-surface-variant uppercase">Birth Date</label>
+<input class="w-full px-4 py-3 rounded-lg border border-outline-variant focus:border-sacred-orange focus:ring-1 focus:ring-sacred-orange bg-surface-bright outline-none transition-all" type="date"/>
+</div>
+<div class="space-y-1">
+<label class="font-label-caps text-label-caps text-on-surface-variant uppercase">Birth Time</label>
+<input class="w-full px-4 py-3 rounded-lg border border-outline-variant focus:border-sacred-orange focus:ring-1 focus:ring-sacred-orange bg-surface-bright outline-none transition-all" type="time"/>
+</div>
+</div>
+<div class="space-y-1">
+<label class="font-label-caps text-label-caps text-on-surface-variant uppercase">Birth Place</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant">location_on</span>
+<input class="w-full pl-10 pr-4 py-3 rounded-lg border border-outline-variant focus:border-sacred-orange focus:ring-1 focus:ring-sacred-orange bg-surface-bright outline-none transition-all" placeholder="Enter City, Country" type="text"/>
+</div>
+</div>
+<div class="space-y-1 pt-2">
+<label class="font-label-caps text-label-caps text-on-surface-variant uppercase">Gender</label>
+<div class="flex gap-2">
+<button class="flex-1 py-2 rounded-lg border border-sacred-orange bg-primary-container/10 text-on-primary-container font-semibold" type="button">Male</button>
+<button class="flex-1 py-2 rounded-lg border border-outline-variant hover:border-sacred-orange transition-colors" type="button">Female</button>
+</div>
+</div>
+<button class="w-full mt-6 bg-sacred-orange text-white py-4 rounded-lg font-bold shadow-md hover:shadow-lg active:scale-[0.98] transition-all flex justify-center items-center gap-2" type="submit">
+<span>Generate Kundli</span>
+<span class="material-symbols-outlined">auto_fix_high</span>
+</button>
+</form>
+</div>
+<!-- Guidance Info -->
+<div class="p-6 rounded-xl bg-secondary-container/10 border border-secondary-container/30">
+<h3 class="font-body-md font-bold text-secondary mb-2 flex items-center gap-2">
+<span class="material-symbols-outlined">lightbulb</span>
+                        Did you know?
+                    </h3>
+<p class="text-body-sm text-on-surface-variant leading-relaxed">
+                        Accurate birth time (within 5 minutes) is essential for an exact Lagna (Ascendant) calculation, which forms the basis of all predictive astrology.
+                    </p>
+</div>
+</section>
+<!-- Right Column: Chart & Data Visuals -->
+<section class="lg:col-span-8 space-y-gutter">
+<!-- Chart Navigation Tabs -->
+<div class="flex bg-surface-container-low p-1 rounded-xl w-fit">
+<button class="px-6 py-2 rounded-lg bg-surface-bright shadow-sm text-sacred-orange font-bold font-body-md border border-outline-variant/20">Lagna Chart</button>
+<button class="px-6 py-2 rounded-lg text-on-surface-variant font-medium hover:bg-surface-container transition-all">Navamsha (D9)</button>
+<button class="px-6 py-2 rounded-lg text-on-surface-variant font-medium hover:bg-surface-container transition-all">Dasha Timeline</button>
+<button class="px-6 py-2 rounded-lg text-on-surface-variant font-medium hover:bg-surface-container transition-all">Ashtakvarga</button>
+</div>
+<!-- Main Kundli Display -->
+<div class="bg-surface-container-lowest rounded-2xl border border-outline-variant p-gutter shadow-sm grid grid-cols-1 md:grid-cols-2 gap-gutter">
+<!-- The North Indian Chart Canvas -->
+<div class="kundli-grid w-full rounded-lg overflow-hidden border-sacred-orange/20">
+<!-- Diagonal Lines -->
+<div class="kundli-line w-[141%] h-[1.5px] top-0 left-0 origin-top-left rotate-45"></div>
+<div class="kundli-line w-[141%] h-[1.5px] bottom-0 left-0 origin-bottom-left -rotate-45"></div>
+<!-- Middle Square -->
+<div class="absolute inset-0 m-auto w-1/2 h-1/2 border-[1.5px] border-chart-line rotate-45 z-0"></div>
+<!-- Content Houses -->
+<!-- 1st House (Lagna) -->
+<div class="absolute top-[35%] left-1/2 -translate-x-1/2 flex flex-col items-center z-10">
+<span class="house-number">1</span>
+<div class="flex flex-wrap justify-center gap-1 mt-1">
+<span class="planet-tag font-bold text-sacred-orange">Asc</span>
+<span class="planet-tag">Ju</span>
+</div>
+</div>
+<!-- 2nd House -->
+<div class="absolute top-[15%] left-[20%] z-10">
+<span class="house-number">2</span>
+</div>
+<!-- 4th House -->
+<div class="absolute top-1/2 -translate-y-1/2 left-[15%] flex flex-col items-center z-10">
+<span class="house-number">4</span>
+<div class="flex flex-wrap justify-center gap-1 mt-1">
+<span class="planet-tag">Mo</span>
+<span class="planet-tag">Ma</span>
+</div>
+</div>
+<!-- 7th House -->
+<div class="absolute bottom-[35%] left-1/2 -translate-x-1/2 flex flex-col items-center z-10">
+<span class="house-number">7</span>
+<div class="flex flex-wrap justify-center gap-1 mt-1">
+<span class="planet-tag">Sa</span>
+</div>
+</div>
+<!-- 10th House -->
+<div class="absolute top-1/2 -translate-y-1/2 right-[15%] flex flex-col items-center z-10">
+<span class="house-number">10</span>
+<div class="flex flex-wrap justify-center gap-1 mt-1">
+<span class="planet-tag">Su</span>
+<span class="planet-tag">Me</span>
+</div>
+</div>
+<!-- 12th House -->
+<div class="absolute top-[15%] right-[20%] z-10">
+<span class="house-number">12</span>
+<div class="planet-tag mt-1">Ra</div>
+</div>
+<div class="absolute bottom-[15%] left-[20%] z-10">
+<span class="house-number">6</span>
+<div class="planet-tag mt-1">Ke</div>
+</div>
+</div>
+<!-- Planetary Table -->
+<div class="space-y-4">
+<div class="flex items-center justify-between">
+<h3 class="font-body-lg font-bold text-deep-navy">Planetary Positions</h3>
+<span class="text-label-caps text-on-surface-variant">Lagna: Leo (Simha)</span>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left">
+<thead class="border-b border-outline-variant">
+<tr>
+<th class="py-2 text-label-caps text-on-surface-variant">Planet</th>
+<th class="py-2 text-label-caps text-on-surface-variant">Rashi</th>
+<th class="py-2 text-label-caps text-on-surface-variant">Degree</th>
+<th class="py-2 text-label-caps text-on-surface-variant">Nakshatra</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant/50">
+<tr>
+<td class="py-3 font-medium">Sun</td>
+<td class="py-3">Aries</td>
+<td class="py-3 font-data-mono">14° 22'</td>
+<td class="py-3 text-body-sm">Ashwini</td>
+</tr>
+<tr>
+<td class="py-3 font-medium">Moon</td>
+<td class="py-3">Cancer</td>
+<td class="py-3 font-data-mono">08° 11'</td>
+<td class="py-3 text-body-sm">Pushya</td>
+</tr>
+<tr>
+<td class="py-3 font-medium">Mars</td>
+<td class="py-3">Scorpio</td>
+<td class="py-3 font-data-mono">22° 45'</td>
+<td class="py-3 text-body-sm">Jyeshtha</td>
+</tr>
+<tr class="bg-primary-container/5">
+<td class="py-3 font-medium flex items-center gap-2">Jupiter <span class="text-[10px] bg-sacred-orange text-white px-1 rounded">R</span></td>
+<td class="py-3">Pisces</td>
+<td class="py-3 font-data-mono">19° 04'</td>
+<td class="py-3 text-body-sm">Revati</td>
+</tr>
+<tr>
+<td class="py-3 font-medium">Saturn</td>
+<td class="py-3">Aquarius</td>
+<td class="py-3 font-data-mono">05° 18'</td>
+<td class="py-3 text-body-sm">Shatabhisha</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p class="text-label-caps text-status-busy italic">* R denotes Retrograde planets</p>
+</div>
+</div>
+<!-- Bento Grid: Key Highlights -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<!-- Card 1 -->
+<div class="p-6 rounded-2xl bg-white border border-outline-variant shadow-sm hover:translate-y-[-4px] transition-transform duration-300">
+<div class="w-10 h-10 rounded-full bg-energy-yellow/20 flex items-center justify-center text-primary mb-4">
+<span class="material-symbols-outlined">wb_sunny</span>
+</div>
+<h4 class="font-bold text-deep-navy mb-1">Soul Planet (Atmakaraka)</h4>
+<p class="text-body-sm text-on-surface-variant">Your Sun in Aries indicates a courageous soul driven by leadership and new beginnings.</p>
+</div>
+<!-- Card 2 -->
+<div class="p-6 rounded-2xl bg-white border border-outline-variant shadow-sm hover:translate-y-[-4px] transition-transform duration-300">
+<div class="w-10 h-10 rounded-full bg-primary-container/20 flex items-center justify-center text-sacred-orange mb-4">
+<span class="material-symbols-outlined">psychology</span>
+</div>
+<h4 class="font-bold text-deep-navy mb-1">Intelligence (Budhi)</h4>
+<p class="text-body-sm text-on-surface-variant">Mercury conjunct Sun creates a Budh-Aditya Yoga, granting sharp analytical powers.</p>
+</div>
+<!-- Card 3 -->
+<div class="p-6 rounded-2xl bg-white border border-outline-variant shadow-sm hover:translate-y-[-4px] transition-transform duration-300">
+<div class="w-10 h-10 rounded-full bg-secondary-container/20 flex items-center justify-center text-secondary mb-4">
+<span class="material-symbols-outlined">diamond</span>
+</div>
+<h4 class="font-bold text-deep-navy mb-1">Recommended Gem</h4>
+<p class="text-body-sm text-on-surface-variant">Red Coral is suggested to balance the energy of Mars in your 4th house of happiness.</p>
+</div>
+</div>
+</section>
+</div>
+</main>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-2 py-3 bg-surface border-t border-outline-variant shadow-lg rounded-t-xl">
+<div class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-xl px-3 py-1">
+<span class="material-symbols-outlined">home</span>
+<span class="font-label-caps text-label-caps">Home</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant px-3 py-1">
+<span class="material-symbols-outlined">chat_bubble</span>
+<span class="font-label-caps text-label-caps">Consult</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant px-3 py-1">
+<span class="material-symbols-outlined">shopping_bag</span>
+<span class="font-label-caps text-label-caps">Mall</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant px-3 py-1">
+<span class="material-symbols-outlined">account_circle</span>
+<span class="font-label-caps text-label-caps">Profile</span>
+</div>
+</nav>
+<!-- Contextual FAB (Only for main generator screen) -->
+<button class="fixed bottom-24 right-6 md:bottom-10 md:right-10 bg-sacred-orange text-white w-14 h-14 rounded-2xl shadow-xl hover:scale-110 active:scale-95 transition-all flex items-center justify-center group">
+<span class="material-symbols-outlined">picture_as_pdf</span>
+<span class="absolute right-16 bg-deep-navy text-white text-xs px-3 py-1.5 rounded opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap">Download Report</span>
+</button>
+<script>
+        // Micro-interactions for form focus
+        const inputs = document.querySelectorAll('input');
+        inputs.forEach(input => {
+            input.addEventListener('focus', () => {
+                input.parentElement.classList.add('scale-[1.01]');
+            });
+            input.addEventListener('blur', () => {
+                input.parentElement.classList.remove('scale-[1.01]');
+            });
+        });
+
+        // Tab switching logic (Visual only)
+        const tabs = document.querySelectorAll('.flex.bg-surface-container-low button');
+        tabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                tabs.forEach(t => {
+                    t.classList.remove('bg-surface-bright', 'shadow-sm', 'text-sacred-orange', 'font-bold', 'border', 'border-outline-variant/20');
+                    t.classList.add('text-on-surface-variant', 'font-medium');
+                });
+                tab.classList.add('bg-surface-bright', 'shadow-sm', 'text-sacred-orange', 'font-bold', 'border', 'border-outline-variant/20');
+                tab.classList.remove('text-on-surface-variant', 'font-medium');
+            });
+        });
+    </script>
+
+
+<script id="astro-active-nav-script">
+(function(){
+  var current=(location.pathname.split('/').pop()||'index.html').toLowerCase();
+  document.querySelectorAll('.astro-nav-link').forEach(function(a){
+    if((a.getAttribute('data-page')||'').toLowerCase()===current){a.classList.add('active');}
+  });
+})();
+</script>
+</body></html>

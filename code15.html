@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Live Consultation | AstroSaaS</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Playfair+Display:wght@600;700&amp;family=JetBrains+Mono:wght@500&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        .video-gradient-overlay {
+            background: linear-gradient(to bottom, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0) 20%, rgba(0,0,0,0) 80%, rgba(0,0,0,0.6) 100%);
+        }
+        @keyframes pulse-ring {
+            0% { transform: scale(0.95); opacity: 0.5; }
+            50% { transform: scale(1.05); opacity: 0.8; }
+            100% { transform: scale(0.95); opacity: 0.5; }
+        }
+        .live-indicator {
+            animation: pulse-ring 2s infinite ease-in-out;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container": "#edeeef",
+                        "status-available": "#10B981",
+                        "inverse-primary": "#ffb77d",
+                        "surface-variant": "#e1e3e4",
+                        "secondary-fixed": "#ffe16d",
+                        "on-tertiary": "#ffffff",
+                        "on-secondary-container": "#6e5c00",
+                        "primary-container": "#ff8c00",
+                        "on-error": "#ffffff",
+                        "on-primary-fixed-variant": "#6e3900",
+                        "secondary-fixed-dim": "#e9c400",
+                        "on-error-container": "#93000a",
+                        "primary-fixed": "#ffdcc3",
+                        "surface-container-high": "#e7e8e9",
+                        "on-tertiary-fixed-variant": "#3a4951",
+                        "on-secondary": "#ffffff",
+                        "on-secondary-fixed": "#221b00",
+                        "on-primary-fixed": "#2f1500",
+                        "outline": "#897362",
+                        "primary-fixed-dim": "#ffb77d",
+                        "secondary": "#705d00",
+                        "deep-navy": "#1A202C",
+                        "tertiary-container": "#9cacb6",
+                        "on-tertiary-fixed": "#0e1d25",
+                        "inverse-surface": "#2e3132",
+                        "on-tertiary-container": "#314048",
+                        "error": "#ba1a1a",
+                        "energy-yellow": "#FFD700",
+                        "primary": "#904d00",
+                        "on-surface": "#191c1d",
+                        "secondary-container": "#fcd400",
+                        "error-container": "#ffdad6",
+                        "tertiary": "#516169",
+                        "surface-bright": "#f8f9fa",
+                        "slate-gray": "#4A5568",
+                        "surface-container-low": "#f3f4f5",
+                        "on-primary": "#ffffff",
+                        "chart-line": "#E2E8F0",
+                        "surface-tint": "#904d00",
+                        "on-secondary-fixed-variant": "#544600",
+                        "surface-container-lowest": "#ffffff",
+                        "tertiary-fixed-dim": "#b9c9d3",
+                        "background": "#f8f9fa",
+                        "status-busy": "#F59E0B",
+                        "inverse-on-surface": "#f0f1f2",
+                        "surface-dim": "#d9dadb",
+                        "tertiary-fixed": "#d5e5ef",
+                        "sacred-orange": "#FF8C00",
+                        "on-primary-container": "#623200",
+                        "surface": "#f8f9fa",
+                        "outline-variant": "#ddc1ae",
+                        "on-background": "#191c1d",
+                        "on-surface-variant": "#564334",
+                        "surface-container-highest": "#e1e3e4"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "gutter": "24px",
+                        "margin-desktop": "40px",
+                        "margin-mobile": "16px",
+                        "stack-lg": "48px",
+                        "stack-md": "24px",
+                        "base": "8px",
+                        "stack-sm": "12px",
+                        "container-max": "1280px"
+                    },
+                    "fontFamily": {
+                        "body-sm": ["Inter"],
+                        "body-md": ["Inter"],
+                        "display-lg-mobile": ["Playfair Display"],
+                        "data-mono": ["JetBrains Mono"],
+                        "label-caps": ["Inter"],
+                        "headline-sm": ["Playfair Display"],
+                        "display-lg": ["Playfair Display"],
+                        "body-lg": ["Inter"],
+                        "headline-md": ["Playfair Display"]
+                    },
+                    "fontSize": {
+                        "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "display-lg-mobile": ["36px", {"lineHeight": "44px", "fontWeight": "700"}],
+                        "data-mono": ["14px", {"lineHeight": "20px", "fontWeight": "500"}],
+                        "label-caps": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                        "headline-sm": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                        "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                        "headline-md": ["32px", {"lineHeight": "40px", "fontWeight": "600"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+<style>
+</style>
+<style id="astro-simple-side-navbar-style">
+/* Simple side navbar */
+.astro-side-navbar{position:fixed!important;left:0!important;top:0!important;bottom:0!important;width:230px!important;height:100vh!important;z-index:99999!important;background:#111827!important;border-right:1px solid rgba(255,255,255,.12)!important;box-shadow:8px 0 24px rgba(0,0,0,.18)!important;padding:18px 12px!important;box-sizing:border-box!important;font-family:Inter,Arial,sans-serif!important;overflow-y:auto!important}
+.astro-side-brand{display:block!important;color:#fff!important;text-decoration:none!important;font-size:18px!important;font-weight:800!important;line-height:1.25!important;padding:10px 12px 16px!important;margin-bottom:8px!important;border-bottom:1px solid rgba(255,255,255,.14)!important}
+.astro-side-links{display:flex!important;flex-direction:column!important;gap:6px!important}
+.astro-nav-link{display:block!important;color:#e5e7eb!important;text-decoration:none!important;font-size:14px!important;font-weight:600!important;line-height:1.2!important;padding:10px 12px!important;border-radius:10px!important;background:transparent!important;border:0!important;white-space:normal!important;box-shadow:none!important;transition:background .15s ease,color .15s ease!important}
+.astro-nav-link:hover{background:rgba(255,255,255,.10)!important;color:#fff!important;transform:none!important}
+.astro-nav-link.active{background:#f59e0b!important;color:#111827!important;font-weight:800!important}
+body{padding-left:230px!important;box-sizing:border-box!important}
+@media(max-width:760px){.astro-side-navbar{width:190px!important;padding:14px 9px!important}.astro-side-brand{font-size:16px!important}.astro-nav-link{font-size:13px!important;padding:9px 10px!important}body{padding-left:190px!important}}
+</style>
+</head>
+<body class="bg-deep-navy text-on-primary overflow-hidden h-screen font-body-md">
+<!-- Simple side navbar -->
+<aside class="astro-side-navbar">
+  <a class="astro-side-brand" href="index.html">Astro Presentation</a>
+  <nav class="astro-side-links" aria-label="Main screens">
+    <a class="astro-nav-link" href="index.html" data-page="index.html">Home</a>
+    <a class="astro-nav-link" href="code1.html" data-page="code1.html">Mall</a>
+    <a class="astro-nav-link" href="code2.html" data-page="code2.html">Consultation</a>
+    <a class="astro-nav-link" href="code3.html" data-page="code3.html">Wallet</a>
+    <a class="astro-nav-link" href="code4.html" data-page="code4.html">Aetheric 1</a>
+    <a class="astro-nav-link" href="code5.html" data-page="code5.html">Aetheric 2</a>
+    <a class="astro-nav-link" href="code6.html" data-page="code6.html">Catalog</a>
+    <a class="astro-nav-link" href="code7.html" data-page="code7.html">Dashboard</a>
+    <a class="astro-nav-link" href="code8.html" data-page="code8.html">Kundli</a>
+    <a class="astro-nav-link" href="code9.html" data-page="code9.html">Pro Kundli</a>
+    <a class="astro-nav-link" href="code10.html" data-page="code10.html">AI Assistant</a>
+    <a class="astro-nav-link" href="code11.html" data-page="code11.html">AstroHub</a>
+    <a class="astro-nav-link" href="code12.html" data-page="code12.html">Community</a>
+    <a class="astro-nav-link" href="code13.html" data-page="code13.html">Screen 13</a>
+    <a class="astro-nav-link" href="code14.html" data-page="code14.html">Screen 14</a>
+    <a class="astro-nav-link" href="code15.html" data-page="code15.html">Live Consult</a>
+    <a class="astro-nav-link" href="code16.html" data-page="code16.html">Universal Wallet</a>
+  </nav>
+</aside>
+<!-- /Simple side navbar -->
+
+<!-- /Website style common navbar -->
+
+<!-- HD Video/Avatar Background Container -->
+<div class="fixed inset-0 z-0 bg-black">
+<img alt="Consultant" class="w-full h-full object-cover opacity-80" data-alt="A cinematic, high-definition portrait of a senior Vedic astrologer with a serene expression, wearing traditional saffron robes and a gold necklace. The background is a soft-focus study filled with ancient astronomical scrolls and a glowing brass armillary sphere. Warm, professional studio lighting illuminates the subject against a rich, deep-toned interior, creating a modern spiritualist aesthetic with high contrast and premium clarity." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC0mAjL4fSPfQByjJVTao3xQ1kF8KRYDL34ANy4oy7zkC1Wz_o5cpsFDgUnaJb2DaAamSLsbEHSH3LCa_g23NxR1mFihygN4HAm6-dgz7Vk6NL21KtX0OPpI1JfYUojYbHA7MivG4yuYtTA0nytWDsMoLSkws3VJDRbAxpN-ZB-ScD1BS6axXK3-OpsX1OJYq8ueyoNIHzkjZBpXdNCoSQ6cTc6J_755jwaFoq56bJhk9oOqJNIy5HICung_s9Uy6ZDvmP1cj4z3RI"/>
+<div class="absolute inset-0 video-gradient-overlay"></div>
+</div>
+<!-- UI Overlay Layer -->
+<div class="relative z-10 h-full flex flex-col justify-between p-margin-mobile md:p-margin-desktop">
+<!-- Header: Identity & Status -->
+<header class="flex justify-between items-start">
+<div class="flex items-center gap-stack-sm bg-black/40 p-2 rounded-xl backdrop-blur-md">
+<div class="w-12 h-12 rounded-lg border-2 border-sacred-orange overflow-hidden">
+<img alt="User Avatar" class="w-full h-full object-cover" data-alt="A small circular profile picture of a young professional man with a friendly smile, representing the user in a modern digital interface. The lighting is crisp and even, emphasizing a clean and trustworthy appearance suitable for a premium fintech and spiritualist platform. The background is a soft, neutral gray." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC0mAjL4fSPfQByjJVTao3xQ1kF8KRYDL34ANy4oy7zkC1Wz_o5cpsFDgUnaJb2DaAamSLsbEHSH3LCa_g23NxR1mFihygN4HAm6-dgz7Vk6NL21KtX0OPpI1JfYUojYbHA7MivG4yuYtTA0nytWDsMoLSkws3VJDRbAxpN-ZB-ScD1BS6axXK3-OpsX1OJYq8ueyoNIHzkjZBpXdNCoSQ6cTc6J_755jwaFoq56bJhk9oOqJNIy5HICung_s9Uy6ZDvmP1cj4z3RI"/>
+</div>
+<div>
+<h1 class="font-headline-sm text-headline-sm text-white">Acharya Siddharth</h1>
+<div class="flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-status-available live-indicator"></span>
+<span class="font-label-caps text-label-caps text-surface-container-high tracking-wider uppercase">Live Consultation</span>
+</div>
+</div>
+</div>
+<!-- Real-time Counters -->
+<div class="flex flex-col gap-2 items-end">
+<div class="glass-panel px-4 py-2 rounded-xl flex items-center gap-3">
+<span class="material-symbols-outlined text-energy-yellow" style="font-variation-settings: 'FILL' 1;">timer</span>
+<span class="font-data-mono text-white text-lg" id="timer">12:45</span>
+</div>
+<div class="glass-panel px-4 py-2 rounded-xl flex items-center gap-3 border-error/30">
+<span class="material-symbols-outlined text-sacred-orange">account_balance_wallet</span>
+<span class="flex flex-col items-end">
+<span class="font-data-mono text-white text-sm" id="balance">₹12.50 left</span>
+<span class="text-[10px] text-surface-container font-label-caps">AUTO-TOPUP ACTIVE</span>
+</span>
+</div>
+</div>
+</header>
+<!-- Main Content Area (Center - usually empty to show video) -->
+<div class="flex-grow flex items-center justify-center pointer-events-none">
+<!-- Subtle HUD elements could go here if needed -->
+</div>
+<!-- Bottom Section: Chat Overlay & Controls -->
+<footer class="flex flex-col md:flex-row gap-gutter items-end justify-between w-full max-w-container-max mx-auto">
+<!-- Chat / Birth Details Mini Overlay -->
+<div class="w-full md:w-80 glass-panel rounded-xl overflow-hidden shadow-2xl transition-all duration-300 transform" id="chat-box">
+<div class="bg-white/10 p-3 flex justify-between items-center border-b border-white/10">
+<span class="font-label-caps text-label-caps text-white">Session Details</span>
+<button class="text-white/60 hover:text-white transition-colors" onclick="toggleChat()">
+<span class="material-symbols-outlined">keyboard_arrow_down</span>
+</button>
+</div>
+<div class="p-4 space-y-3 max-h-48 overflow-y-auto" id="chat-messages">
+<div class="flex flex-col gap-1">
+<span class="font-label-caps text-[10px] text-energy-yellow">SYSTEM</span>
+<p class="text-body-sm text-white/90 bg-white/5 p-2 rounded-lg">Birth details shared with Acharya.</p>
+</div>
+<div class="flex flex-col gap-1">
+<span class="font-label-caps text-[10px] text-surface-container">ME</span>
+<p class="text-body-sm text-white/90 bg-primary/20 p-2 rounded-lg">DOB: 12/05/1992, Time: 14:20, Place: Mumbai.</p>
+</div>
+</div>
+<div class="p-3 bg-black/20">
+<div class="relative flex items-center">
+<input class="w-full bg-white/10 border-none rounded-full py-2 px-4 text-body-sm text-white placeholder-white/40 focus:ring-1 focus:ring-sacred-orange transition-all" placeholder="Send a message..." type="text"/>
+<button class="absolute right-2 text-sacred-orange hover:scale-110 active:scale-95 transition-transform">
+<span class="material-symbols-outlined">send</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Call Controls -->
+<div class="flex items-center gap-stack-md bg-black/60 p-4 rounded-3xl backdrop-blur-xl border border-white/10 shadow-xl self-center md:self-end">
+<button class="w-14 h-14 rounded-full flex items-center justify-center bg-white/10 text-white hover:bg-white/20 active:scale-90 transition-all group" title="Mute">
+<span class="material-symbols-outlined group-active:hidden">mic</span>
+<span class="material-symbols-outlined hidden group-active:block text-error">mic_off</span>
+</button>
+<button class="w-14 h-14 rounded-full flex items-center justify-center bg-white/10 text-white hover:bg-white/20 active:scale-90 transition-all" title="Speaker">
+<span class="material-symbols-outlined">volume_up</span>
+</button>
+<button class="w-16 h-16 rounded-full flex items-center justify-center bg-error text-white hover:bg-red-700 active:scale-95 transition-all shadow-lg shadow-error/30" title="End Call">
+<span class="material-symbols-outlined text-3xl" style="font-variation-settings: 'FILL' 1;">call_end</span>
+</button>
+<button class="w-14 h-14 rounded-full flex items-center justify-center bg-white/10 text-white hover:bg-white/20 active:scale-90 transition-all" title="Add Participant">
+<span class="material-symbols-outlined">person_add</span>
+</button>
+<button class="w-14 h-14 rounded-full flex items-center justify-center bg-white/10 text-white hover:bg-white/20 active:scale-90 transition-all" title="Video Off">
+<span class="material-symbols-outlined">videocam</span>
+</button>
+</div>
+<!-- Self View Mini -->
+<div class="hidden md:block w-32 h-44 glass-panel rounded-xl overflow-hidden border-2 border-white/20 shadow-2xl transform hover:scale-105 transition-transform cursor-pointer">
+<img alt="Self View" class="w-full h-full object-cover grayscale-[0.2]" data-alt="A high-quality, close-up photograph of a professional man's face, shown in a small picture-in-picture video window. He is in a brightly lit home office environment, creating a clean and modern tech aesthetic. The overall color palette is warm and inviting, consistent with a high-end personal service application." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC0mAjL4fSPfQByjJVTao3xQ1kF8KRYDL34ANy4oy7zkC1Wz_o5cpsFDgUnaJb2DaAamSLsbEHSH3LCa_g23NxR1mFihygN4HAm6-dgz7Vk6NL21KtX0OPpI1JfYUojYbHA7MivG4yuYtTA0nytWDsMoLSkws3VJDRbAxpN-ZB-ScD1BS6axXK3-OpsX1OJYq8ueyoNIHzkjZBpXdNCoSQ6cTc6J_755jwaFoq56bJhk9oOqJNIy5HICung_s9Uy6ZDvmP1cj4z3RI"/>
+<div class="absolute bottom-1 right-1">
+<span class="material-symbols-outlined text-white text-xs opacity-50">flip_camera_ios</span>
+</div>
+</div>
+</footer>
+</div>
+<!-- Interactive Scripting -->
+<script>
+        // Real-time Timer Logic
+        let timeLeft = 12 * 60 + 45; // 12:45 in seconds
+        const timerDisplay = document.getElementById('timer');
+        
+        const countdown = setInterval(() => {
+            if (timeLeft <= 0) {
+                clearInterval(countdown);
+                timerDisplay.classList.add('text-error');
+                return;
+            }
+            timeLeft--;
+            const mins = Math.floor(timeLeft / 60);
+            const secs = timeLeft % 60;
+            timerDisplay.textContent = `${mins}:${secs.toString().padStart(2, '0')}`;
+            
+            // Subtle wallet depletion simulation (₹1 every minute approx)
+            if (secs % 15 === 0) {
+                const balanceEl = document.getElementById('balance');
+                let currentBal = parseFloat(balanceEl.textContent.replace('₹', '').replace(' left', ''));
+                if (currentBal > 0) {
+                    currentBal = (currentBal - 0.25).toFixed(2);
+                    balanceEl.textContent = `₹${currentBal} left`;
+                    if (currentBal < 5) {
+                        balanceEl.parentElement.parentElement.classList.add('border-error');
+                    }
+                }
+            }
+        }, 1000);
+
+        // Chat Toggle Animation
+        let chatOpen = true;
+        function toggleChat() {
+            const chatBox = document.getElementById('chat-box');
+            const chatMessages = document.getElementById('chat-messages');
+            const arrow = event.currentTarget.querySelector('.material-symbols-outlined');
+            
+            if (chatOpen) {
+                chatMessages.classList.add('hidden');
+                chatBox.querySelector('.p-3.bg-black\\/20').classList.add('hidden');
+                arrow.textContent = 'keyboard_arrow_up';
+            } else {
+                chatMessages.classList.remove('hidden');
+                chatBox.querySelector('.p-3.bg-black\\/20').classList.remove('hidden');
+                arrow.textContent = 'keyboard_arrow_down';
+            }
+            chatOpen = !chatOpen;
+        }
+
+        // Add visual interest to buttons on click
+        document.querySelectorAll('button').forEach(btn => {
+            btn.addEventListener('click', function() {
+                this.classList.add('ring-2', 'ring-white/50');
+                setTimeout(() => this.classList.remove('ring-2', 'ring-white/50'), 400);
+            });
+        });
+    </script>
+
+
+<script id="astro-active-nav-script">
+(function(){
+  var current=(location.pathname.split('/').pop()||'index.html').toLowerCase();
+  document.querySelectorAll('.astro-nav-link').forEach(function(a){
+    if((a.getAttribute('data-page')||'').toLowerCase()===current){a.classList.add('active');}
+  });
+})();
+</script>
+</body></html>

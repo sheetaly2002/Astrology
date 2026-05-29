@@ -1,0 +1,67 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Astro Presentation | Home</title><style>
+body{margin:0;font-family:Inter,Arial,sans-serif;background:linear-gradient(135deg,#111827,#312e81 55%,#111827);min-height:100vh;color:#fff}.hero{max-width:1100px;margin:0 auto;padding:60px 18px 28px;text-align:center}.hero h1{font-size:clamp(32px,5vw,64px);margin:0 0 14px;font-weight:900}.hero p{margin:0 auto;color:#d1d5db;max-width:720px;font-size:18px;line-height:1.6}.grid{max-width:1180px;margin:0 auto;padding:24px 18px 70px;display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:16px}.card{display:block;text-decoration:none;color:#fff;background:rgba(255,255,255,.10);border:1px solid rgba(255,255,255,.16);border-radius:20px;padding:22px;box-shadow:0 16px 35px rgba(0,0,0,.2);transition:.2s}.card:hover{transform:translateY(-4px);background:rgba(255,255,255,.16)}.num{display:inline-flex;background:#f59e0b;color:#111827;border-radius:999px;padding:6px 10px;font-weight:900;margin-bottom:14px}.card strong{display:block;font-size:20px;margin-bottom:6px}.card small{color:#d1d5db}
+</style>
+<style id="astro-simple-side-navbar-style">
+/* Simple side navbar */
+.astro-side-navbar{position:fixed!important;left:0!important;top:0!important;bottom:0!important;width:230px!important;height:100vh!important;z-index:99999!important;background:#111827!important;border-right:1px solid rgba(255,255,255,.12)!important;box-shadow:8px 0 24px rgba(0,0,0,.18)!important;padding:18px 12px!important;box-sizing:border-box!important;font-family:Inter,Arial,sans-serif!important;overflow-y:auto!important}
+.astro-side-brand{display:block!important;color:#fff!important;text-decoration:none!important;font-size:18px!important;font-weight:800!important;line-height:1.25!important;padding:10px 12px 16px!important;margin-bottom:8px!important;border-bottom:1px solid rgba(255,255,255,.14)!important}
+.astro-side-links{display:flex!important;flex-direction:column!important;gap:6px!important}
+.astro-nav-link{display:block!important;color:#e5e7eb!important;text-decoration:none!important;font-size:14px!important;font-weight:600!important;line-height:1.2!important;padding:10px 12px!important;border-radius:10px!important;background:transparent!important;border:0!important;white-space:normal!important;box-shadow:none!important;transition:background .15s ease,color .15s ease!important}
+.astro-nav-link:hover{background:rgba(255,255,255,.10)!important;color:#fff!important;transform:none!important}
+.astro-nav-link.active{background:#f59e0b!important;color:#111827!important;font-weight:800!important}
+body{padding-left:230px!important;box-sizing:border-box!important}
+@media(max-width:760px){.astro-side-navbar{width:190px!important;padding:14px 9px!important}.astro-side-brand{font-size:16px!important}.astro-nav-link{font-size:13px!important;padding:9px 10px!important}body{padding-left:190px!important}}
+</style>
+</head><body>
+<!-- Simple side navbar -->
+<aside class="astro-side-navbar">
+  <a class="astro-side-brand" href="index.html">Astro Presentation</a>
+  <nav class="astro-side-links" aria-label="Main screens">
+    <a class="astro-nav-link" href="index.html" data-page="index.html">Home</a>
+    <a class="astro-nav-link" href="code1.html" data-page="code1.html">Mall</a>
+    <a class="astro-nav-link" href="code2.html" data-page="code2.html">Consultation</a>
+    <a class="astro-nav-link" href="code3.html" data-page="code3.html">Wallet</a>
+    <a class="astro-nav-link" href="code4.html" data-page="code4.html">Aetheric 1</a>
+    <a class="astro-nav-link" href="code5.html" data-page="code5.html">Aetheric 2</a>
+    <a class="astro-nav-link" href="code6.html" data-page="code6.html">Catalog</a>
+    <a class="astro-nav-link" href="code7.html" data-page="code7.html">Dashboard</a>
+    <a class="astro-nav-link" href="code8.html" data-page="code8.html">Kundli</a>
+    <a class="astro-nav-link" href="code9.html" data-page="code9.html">Pro Kundli</a>
+    <a class="astro-nav-link" href="code10.html" data-page="code10.html">AI Assistant</a>
+    <a class="astro-nav-link" href="code11.html" data-page="code11.html">AstroHub</a>
+    <a class="astro-nav-link" href="code12.html" data-page="code12.html">Community</a>
+    <a class="astro-nav-link" href="code13.html" data-page="code13.html">Screen 13</a>
+    <a class="astro-nav-link" href="code14.html" data-page="code14.html">Screen 14</a>
+    <a class="astro-nav-link" href="code15.html" data-page="code15.html">Live Consult</a>
+    <a class="astro-nav-link" href="code16.html" data-page="code16.html">Universal Wallet</a>
+  </nav>
+</aside>
+<!-- /Simple side navbar -->
+
+<!-- /Website style common navbar -->
+<main><section class="hero"><h1>Astrology Presentation</h1><p>Ek professional website-style navigation: navbar har screen par same rahega, aur current screen active highlight hogi.</p></section><section class="grid"><a class="card" href="code1.html"><span class="num">01</span><strong>Mall</strong><small>Open screen 1</small></a>
+<a class="card" href="code2.html"><span class="num">02</span><strong>Consultation</strong><small>Open screen 2</small></a>
+<a class="card" href="code3.html"><span class="num">03</span><strong>Wallet</strong><small>Open screen 3</small></a>
+<a class="card" href="code4.html"><span class="num">04</span><strong>Aetheric 1</strong><small>Open screen 4</small></a>
+<a class="card" href="code5.html"><span class="num">05</span><strong>Aetheric 2</strong><small>Open screen 5</small></a>
+<a class="card" href="code6.html"><span class="num">06</span><strong>Catalog</strong><small>Open screen 6</small></a>
+<a class="card" href="code7.html"><span class="num">07</span><strong>Dashboard</strong><small>Open screen 7</small></a>
+<a class="card" href="code8.html"><span class="num">08</span><strong>Kundli</strong><small>Open screen 8</small></a>
+<a class="card" href="code9.html"><span class="num">09</span><strong>Pro Kundli</strong><small>Open screen 9</small></a>
+<a class="card" href="code10.html"><span class="num">10</span><strong>AI Assistant</strong><small>Open screen 10</small></a>
+<a class="card" href="code11.html"><span class="num">11</span><strong>AstroHub</strong><small>Open screen 11</small></a>
+<a class="card" href="code12.html"><span class="num">12</span><strong>Community</strong><small>Open screen 12</small></a>
+<a class="card" href="code13.html"><span class="num">13</span><strong>Screen 13</strong><small>Open screen 13</small></a>
+<a class="card" href="code14.html"><span class="num">14</span><strong>Screen 14</strong><small>Open screen 14</small></a>
+<a class="card" href="code15.html"><span class="num">15</span><strong>Live Consult</strong><small>Open screen 15</small></a>
+<a class="card" href="code16.html"><span class="num">16</span><strong>Universal Wallet</strong><small>Open screen 16</small></a></section></main>
+
+<script id="astro-active-nav-script">
+(function(){
+  var current=(location.pathname.split('/').pop()||'index.html').toLowerCase();
+  document.querySelectorAll('.astro-nav-link').forEach(function(a){
+    if((a.getAttribute('data-page')||'').toLowerCase()===current){a.classList.add('active');}
+  });
+})();
+</script>
+</body></html>

@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Playfair+Display:wght@600;700&amp;family=JetBrains+Mono:wght@500&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+        .hide-scrollbar::-webkit-scrollbar { display: none; }
+        .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container": "#edeeef",
+                        "status-available": "#10B981",
+                        "inverse-primary": "#ffb77d",
+                        "surface-variant": "#e1e3e4",
+                        "secondary-fixed": "#ffe16d",
+                        "on-tertiary": "#ffffff",
+                        "on-secondary-container": "#6e5c00",
+                        "primary-container": "#ff8c00",
+                        "on-error": "#ffffff",
+                        "on-primary-fixed-variant": "#6e3900",
+                        "secondary-fixed-dim": "#e9c400",
+                        "on-error-container": "#93000a",
+                        "primary-fixed": "#ffdcc3",
+                        "surface-container-high": "#e7e8e9",
+                        "on-tertiary-fixed-variant": "#3a4951",
+                        "on-secondary": "#ffffff",
+                        "on-secondary-fixed": "#221b00",
+                        "on-primary-fixed": "#2f1500",
+                        "outline": "#897362",
+                        "primary-fixed-dim": "#ffb77d",
+                        "secondary": "#705d00",
+                        "deep-navy": "#1A202C",
+                        "tertiary-container": "#9cacb6",
+                        "on-tertiary-fixed": "#0e1d25",
+                        "inverse-surface": "#2e3132",
+                        "on-tertiary-container": "#314048",
+                        "error": "#ba1a1a",
+                        "energy-yellow": "#FFD700",
+                        "primary": "#904d00",
+                        "on-surface": "#191c1d",
+                        "secondary-container": "#fcd400",
+                        "error-container": "#ffdad6",
+                        "tertiary": "#516169",
+                        "surface-bright": "#f8f9fa",
+                        "slate-gray": "#4A5568",
+                        "surface-container-low": "#f3f4f5",
+                        "on-primary": "#ffffff",
+                        "chart-line": "#E2E8F0",
+                        "surface-tint": "#904d00",
+                        "on-secondary-fixed-variant": "#544600",
+                        "surface-container-lowest": "#ffffff",
+                        "tertiary-fixed-dim": "#b9c9d3",
+                        "background": "#f8f9fa",
+                        "status-busy": "#F59E0B",
+                        "inverse-on-surface": "#f0f1f2",
+                        "surface-dim": "#d9dadb",
+                        "tertiary-fixed": "#d5e5ef",
+                        "sacred-orange": "#FF8C00",
+                        "on-primary-container": "#623200",
+                        "surface": "#f8f9fa",
+                        "outline-variant": "#ddc1ae",
+                        "on-background": "#191c1d",
+                        "on-surface-variant": "#564334",
+                        "surface-container-highest": "#e1e3e4"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "gutter": "24px",
+                        "margin-desktop": "40px",
+                        "margin-mobile": "16px",
+                        "stack-lg": "48px",
+                        "stack-md": "24px",
+                        "base": "8px",
+                        "stack-sm": "12px",
+                        "container-max": "1280px"
+                    },
+                    "fontFamily": {
+                        "body-sm": ["Inter"],
+                        "body-md": ["Inter"],
+                        "display-lg-mobile": ["Playfair Display"],
+                        "data-mono": ["JetBrains Mono"],
+                        "label-caps": ["Inter"],
+                        "headline-sm": ["Playfair Display"],
+                        "display-lg": ["Playfair Display"],
+                        "body-lg": ["Inter"],
+                        "headline-md": ["Playfair Display"]
+                    },
+                    "fontSize": {
+                        "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "display-lg-mobile": ["36px", {"lineHeight": "44px", "fontWeight": "700"}],
+                        "data-mono": ["14px", {"lineHeight": "20px", "fontWeight": "500"}],
+                        "label-caps": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                        "headline-sm": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                        "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                        "headline-md": ["32px", {"lineHeight": "40px", "fontWeight": "600"}]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+<style>
+</style>
+<style id="astro-simple-side-navbar-style">
+/* Simple side navbar */
+.astro-side-navbar{position:fixed!important;left:0!important;top:0!important;bottom:0!important;width:230px!important;height:100vh!important;z-index:99999!important;background:#111827!important;border-right:1px solid rgba(255,255,255,.12)!important;box-shadow:8px 0 24px rgba(0,0,0,.18)!important;padding:18px 12px!important;box-sizing:border-box!important;font-family:Inter,Arial,sans-serif!important;overflow-y:auto!important}
+.astro-side-brand{display:block!important;color:#fff!important;text-decoration:none!important;font-size:18px!important;font-weight:800!important;line-height:1.25!important;padding:10px 12px 16px!important;margin-bottom:8px!important;border-bottom:1px solid rgba(255,255,255,.14)!important}
+.astro-side-links{display:flex!important;flex-direction:column!important;gap:6px!important}
+.astro-nav-link{display:block!important;color:#e5e7eb!important;text-decoration:none!important;font-size:14px!important;font-weight:600!important;line-height:1.2!important;padding:10px 12px!important;border-radius:10px!important;background:transparent!important;border:0!important;white-space:normal!important;box-shadow:none!important;transition:background .15s ease,color .15s ease!important}
+.astro-nav-link:hover{background:rgba(255,255,255,.10)!important;color:#fff!important;transform:none!important}
+.astro-nav-link.active{background:#f59e0b!important;color:#111827!important;font-weight:800!important}
+body{padding-left:230px!important;box-sizing:border-box!important}
+@media(max-width:760px){.astro-side-navbar{width:190px!important;padding:14px 9px!important}.astro-side-brand{font-size:16px!important}.astro-nav-link{font-size:13px!important;padding:9px 10px!important}body{padding-left:190px!important}}
+</style>
+</head>
+<body class="bg-background text-on-background min-h-screen pb-32">
+<!-- Simple side navbar -->
+<aside class="astro-side-navbar">
+  <a class="astro-side-brand" href="index.html">Astro Presentation</a>
+  <nav class="astro-side-links" aria-label="Main screens">
+    <a class="astro-nav-link" href="index.html" data-page="index.html">Home</a>
+    <a class="astro-nav-link" href="code1.html" data-page="code1.html">Mall</a>
+    <a class="astro-nav-link" href="code2.html" data-page="code2.html">Consultation</a>
+    <a class="astro-nav-link" href="code3.html" data-page="code3.html">Wallet</a>
+    <a class="astro-nav-link" href="code4.html" data-page="code4.html">Aetheric 1</a>
+    <a class="astro-nav-link" href="code5.html" data-page="code5.html">Aetheric 2</a>
+    <a class="astro-nav-link" href="code6.html" data-page="code6.html">Catalog</a>
+    <a class="astro-nav-link" href="code7.html" data-page="code7.html">Dashboard</a>
+    <a class="astro-nav-link" href="code8.html" data-page="code8.html">Kundli</a>
+    <a class="astro-nav-link" href="code9.html" data-page="code9.html">Pro Kundli</a>
+    <a class="astro-nav-link" href="code10.html" data-page="code10.html">AI Assistant</a>
+    <a class="astro-nav-link" href="code11.html" data-page="code11.html">AstroHub</a>
+    <a class="astro-nav-link" href="code12.html" data-page="code12.html">Community</a>
+    <a class="astro-nav-link" href="code13.html" data-page="code13.html">Screen 13</a>
+    <a class="astro-nav-link" href="code14.html" data-page="code14.html">Screen 14</a>
+    <a class="astro-nav-link" href="code15.html" data-page="code15.html">Live Consult</a>
+    <a class="astro-nav-link" href="code16.html" data-page="code16.html">Universal Wallet</a>
+  </nav>
+</aside>
+<!-- /Simple side navbar -->
+
+<!-- /Website style common navbar -->
+
+<!-- Top App Bar -->
+<header class="fixed top-0 w-full z-50 flex justify-between items-center px-4 md:px-margin-desktop h-16 bg-surface border-b border-outline-variant shadow-sm">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-sacred-orange">auto_awesome</span>
+<h1 class="font-headline-sm text-headline-sm font-bold text-sacred-orange">AstroSaaS</h1>
+</div>
+<div class="flex items-center gap-4">
+<div class="hidden md:flex gap-6 mr-6">
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors" href="#">DASHBOARD</a>
+<a class="font-label-caps text-label-caps text-primary font-semibold border-b-2 border-sacred-orange" href="#">CONSULT</a>
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors" href="#">MALL</a>
+</div>
+<button class="bg-surface-container-low px-3 py-1.5 rounded-full flex items-center gap-2 text-primary font-medium text-body-sm active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-[18px]">account_balance_wallet</span>
+<span>₹450</span>
+</button>
+<div class="w-10 h-10 rounded-full bg-primary-fixed overflow-hidden border border-outline-variant">
+<img alt="User profile picture" class="w-full h-full object-cover" data-alt="A professional studio portrait of a modern man with a warm smile, representing a premium user profile. The lighting is soft and cinematic, following a high-end corporate aesthetic with a clean, neutral background. The overall mood is sophisticated, trustworthy, and calm, reflecting the spiritual-tech brand identity." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDIq9l41rOFxVXFwEwl7Ke9b0Bf9fvABMpWXvZClesjeXRlT41puHnmnovPnNG9UZHchMdHgrsJi0ZrFDTnamOwTvXzY3kitE5KubvqK6tAn8GDu0vrxR6ou811PFmsiIrtJvqKBspuufqzhitqi1z1jxU5nJfARifB5TMp_NlvbjjxuWwb5Rcv5o5hIwLPJ5_E8XKmzsAo37MCfmuPz277wI5oI7cEJ9Eemd8ATaW-Iv9ThSxxLC4Gko5TIYndRIKh_glGnSN-o_o"/>
+</div>
+</div>
+</header>
+<main class="pt-24 px-4 md:px-margin-desktop max-w-container-max mx-auto">
+<!-- Smart Waiting Queue Visualization -->
+<section class="mb-stack-lg">
+<div class="flex items-center justify-between mb-4">
+<h2 class="font-headline-sm text-headline-sm text-on-surface">Queue Intelligence</h2>
+<div class="flex items-center gap-2 text-status-busy">
+<span class="relative flex h-2 w-2">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-status-busy opacity-75"></span>
+<span class="relative inline-flex rounded-full h-2 w-2 bg-status-busy"></span>
+</span>
+<span class="font-label-caps text-label-caps">LIVE SESSIONS</span>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<!-- Active Queue Card -->
+<div class="glass-card border border-outline-variant rounded-xl p-4 flex flex-col gap-3 shadow-sm">
+<div class="flex justify-between items-start">
+<div class="flex gap-3">
+<div class="relative">
+<img class="w-12 h-12 rounded-full object-cover border-2 border-energy-yellow" data-alt="A close-up portrait of a serene female spiritual advisor with a gentle expression. She is wearing modern, professional attire in a bright, clean studio setting. The lighting is ethereal yet sharp, emphasizing her clarity and wisdom. The color palette is composed of soft whites and sacred orange accents." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCamJOEQoYQJfkvgmlE8lGhwl4AjYiMY2Q2L49MxxFfeCtIRXpakt-sfNMK8tR7wGvtz39VtYt_Ho1Z-aLQqnikYiB-zLZotUw1yXwESnX42DxY098Tw2hzU2A22yND9WQgqTh69YC2iTALA1Y_L0VWzVAsb4ZuvgiR5lIlb5OsVYNvqa_DuvugVof4ERPGeTmo35KyYwyUz5dvN4XKxa6l6aeAyM9G-OlVr_uT9jAXTVQCn7mBOcRUB2TlT2pUiC1I4bhytZ3jiOQ"/>
+<div class="absolute -bottom-1 -right-1 bg-energy-yellow w-5 h-5 rounded-full flex items-center justify-center text-[10px] font-bold">LIVE</div>
+</div>
+<div>
+<p class="font-body-md text-body-md font-semibold text-on-surface">Acharya Shweta</p>
+<p class="text-body-sm text-on-surface-variant">Vedic Astrology</p>
+</div>
+</div>
+<div class="bg-surface-container-high px-2 py-1 rounded text-body-sm font-data-mono">5 min wait</div>
+</div>
+<div class="w-full bg-surface-container rounded-full h-1.5 overflow-hidden">
+<div class="bg-sacred-orange h-full w-2/3 transition-all duration-1000"></div>
+</div>
+<p class="text-[11px] font-label-caps text-on-surface-variant text-center">CURRENT SESSION: 12m 40s • 2 IN QUEUE</p>
+</div>
+<!-- Active Queue Card 2 -->
+<div class="glass-card border border-outline-variant rounded-xl p-4 flex flex-col gap-3 shadow-sm opacity-80 hover:opacity-100 transition-opacity">
+<div class="flex justify-between items-start">
+<div class="flex gap-3">
+<div class="relative">
+<img class="w-12 h-12 rounded-full object-cover border-2 border-energy-yellow" data-alt="A portrait of a male tarot expert with an air of intellectual curiosity. He is in a modern office with subtle metaphysical elements in the background, like a gold-framed mandala. High-key lighting makes the image feel airy and professional. The aesthetic is clean, sophisticated, and minimalist." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAQnLQL_doFIfLYZc41CeEbvfISGWJZpW0lVQ7R4QQewhSkmQT3pKJulZSjLwwYNXk1qEWdBMYv9qgpu_md4uMsRy2bvfZfmbkxUyGIIV8XyRI1Niwm24TqT0KHE3bFOyfl8lB1FKgZ0-KroWNVklm7_kz-8D8DrSmh3JTxo6-iWTXqRPbaC4bSi2RogyePTuogdVSyPu8hvypcDX04qI0kChufoPrdhAYSCNaSX-TA5gaEN9RA-zVV7A5EqBpag7dzms9rfOL1iZY"/>
+<div class="absolute -bottom-1 -right-1 bg-energy-yellow w-5 h-5 rounded-full flex items-center justify-center text-[10px] font-bold">LIVE</div>
+</div>
+<div>
+<p class="font-body-md text-body-md font-semibold text-on-surface">Pandit Rahul</p>
+<p class="text-body-sm text-on-surface-variant">Tarot &amp; Numerology</p>
+</div>
+</div>
+<div class="bg-surface-container-high px-2 py-1 rounded text-body-sm font-data-mono">2 min wait</div>
+</div>
+<div class="w-full bg-surface-container rounded-full h-1.5 overflow-hidden">
+<div class="bg-sacred-orange h-full w-1/4 transition-all duration-1000"></div>
+</div>
+<p class="text-[11px] font-label-caps text-on-surface-variant text-center">CURRENT SESSION: 04m 15s • 1 IN QUEUE</p>
+</div>
+<!-- Quick Action Card -->
+<div class="bg-primary-container border border-primary text-on-primary-container rounded-xl p-4 flex flex-col justify-center items-center text-center gap-2 cursor-pointer active:scale-95 transition-all shadow-md">
+<span class="material-symbols-outlined text-[32px]">bolt</span>
+<h3 class="font-headline-sm text-[20px] font-bold">Quick Connect</h3>
+<p class="text-body-sm opacity-90">Get connected to the first available expert</p>
+</div>
+</div>
+</section>
+<!-- Astrologer Listing Filters -->
+<div class="flex items-center gap-3 mb-stack-md overflow-x-auto hide-scrollbar pb-2">
+<button class="bg-primary text-on-primary px-4 py-2 rounded-full font-label-caps text-label-caps whitespace-nowrap">ALL EXPERTS</button>
+<button class="bg-surface-container-lowest border border-outline-variant px-4 py-2 rounded-full font-label-caps text-label-caps whitespace-nowrap hover:bg-surface-container-low transition-colors">VEDIC</button>
+<button class="bg-surface-container-lowest border border-outline-variant px-4 py-2 rounded-full font-label-caps text-label-caps whitespace-nowrap hover:bg-surface-container-low transition-colors">TAROT</button>
+<button class="bg-surface-container-lowest border border-outline-variant px-4 py-2 rounded-full font-label-caps text-label-caps whitespace-nowrap hover:bg-surface-container-low transition-colors">NUMEROLOGY</button>
+<button class="bg-surface-container-lowest border border-outline-variant px-4 py-2 rounded-full font-label-caps text-label-caps whitespace-nowrap hover:bg-surface-container-low transition-colors">VASTU</button>
+<button class="ml-auto bg-surface-container border border-outline-variant p-2 rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined text-[20px]">filter_list</span>
+</button>
+</div>
+<!-- Astrologer Cards Grid -->
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-gutter">
+<!-- Card 1 -->
+<div class="bg-white border border-outline-variant rounded-2xl overflow-hidden hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group">
+<div class="relative h-48 w-full">
+<img class="w-full h-full object-cover" data-alt="A portrait of a wise-looking elderly Vedic scholar sitting in a bright, modern library filled with spiritual texts. The lighting is warm and golden, symbolizing enlightenment. The aesthetic is clean and professional, using high-end photography techniques with a shallow depth of field. Sacred orange and deep navy colors are present in his traditional yet refined clothing." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBUwmyLJ3R7G8g8JtO-a3c6gpNIKQ3f-syj2kpxgPnZo85alOkVQaEiQmfo4L-TEfVWMFMkwyoaHAOxjrIeahSjepGtWmxZa06lXDZjBaUvlRdbJft-fg-T8sQ4YhBc8jWdHPLIv2b0YrBhIoIi5M52Idr2J2MpcaeONSva63CuAmuxB34lLgimt5SMw1EDDqeb-CPCTTaZUnXbCcwLxiiN89dXMOM3j_0k_9WjMc5jwHpCcYSFkIRStPJuI0cJ9m3mmtbvBWnfDWg"/>
+<div class="absolute top-3 left-3 bg-status-available text-white font-label-caps text-[10px] px-2 py-0.5 rounded-full flex items-center gap-1">
+<span class="w-1.5 h-1.5 bg-white rounded-full"></span> AVAILABLE
+                    </div>
+<div class="absolute bottom-3 right-3 glass-card px-2 py-1 rounded-lg flex items-center gap-1 shadow-sm">
+<span class="material-symbols-outlined text-energy-yellow text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-data-mono text-body-sm font-bold">4.9</span>
+</div>
+</div>
+<div class="p-5 flex flex-col gap-4">
+<div>
+<h3 class="font-headline-sm text-[20px] text-on-surface">Acharya Vinay</h3>
+<p class="text-on-surface-variant text-body-sm">Vedic Astrology • 15 Yrs Exp.</p>
+</div>
+<div class="flex justify-between items-end">
+<div class="flex flex-col">
+<span class="text-[10px] font-label-caps text-on-surface-variant">CONSULTATION</span>
+<span class="text-body-lg font-bold text-primary">₹25<span class="text-body-sm font-normal text-on-surface-variant">/min</span></span>
+</div>
+<button class="bg-sacred-orange text-white px-6 py-2 rounded-xl font-semibold active:scale-90 transition-transform shadow-md">Consult</button>
+</div>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="bg-white border border-outline-variant rounded-2xl overflow-hidden hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group">
+<div class="relative h-48 w-full">
+<img class="w-full h-full object-cover" data-alt="A portrait of a contemporary female tarot reader with a calm and focused presence. She is in a minimalist, light-filled room with large windows showing a hint of greenery. The visual style is modern corporate, emphasizing trust and professionalism. Her attire is professional yet features subtle spiritual patterns. High contrast and clean geometric lines define the composition." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDJyHAm8y4tUBxZdGCiBAP3qj9tNsxRSIoftqjHrgs4KTi6Aj4mQRiUl4iSdrDnoznNUfd8qLeAVoRMld2u1vQE8qeuQacYGHIm23K-MjwBNGqJTnXBiXs41XDMCsatpA3-EU3KCIh-St01Xl7-iGRgKzdsEdFrX08TfsKZK-wQ6f4MhHSw4yPWH96OiTSpnhZk3rpmpYnuPBo1JA0H5GhVDFmf2uf0NIWVUXiLc4tV3mr2ge40VF4bbJlrFldJUH39AjbtTe38QYE"/>
+<div class="absolute top-3 left-3 bg-status-busy text-white font-label-caps text-[10px] px-2 py-0.5 rounded-full flex items-center gap-1">
+<span class="material-symbols-outlined text-[10px]">schedule</span> BUSY - 5 MIN
+                    </div>
+<div class="absolute bottom-3 right-3 glass-card px-2 py-1 rounded-lg flex items-center gap-1 shadow-sm">
+<span class="material-symbols-outlined text-energy-yellow text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-data-mono text-body-sm font-bold">4.8</span>
+</div>
+</div>
+<div class="p-5 flex flex-col gap-4">
+<div>
+<h3 class="font-headline-sm text-[20px] text-on-surface">Tarot Isha</h3>
+<p class="text-on-surface-variant text-body-sm">Tarot, Psychic • 8 Yrs Exp.</p>
+</div>
+<div class="flex justify-between items-end">
+<div class="flex flex-col">
+<span class="text-[10px] font-label-caps text-on-surface-variant">CONSULTATION</span>
+<span class="text-body-lg font-bold text-primary">₹30<span class="text-body-sm font-normal text-on-surface-variant">/min</span></span>
+</div>
+<button class="bg-surface-container text-on-surface-variant px-6 py-2 rounded-xl font-semibold active:scale-95 transition-transform">Waitlist</button>
+</div>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="bg-white border border-outline-variant rounded-2xl overflow-hidden hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group">
+<div class="relative h-48 w-full">
+<img class="w-full h-full object-cover" data-alt="A portrait of a male numerologist with a friendly and analytical gaze. He is shown in a bright, modern studio environment with a large blackboard of mathematical and spiritual equations softly blurred in the background. The lighting is professional and clear, following a high-key light mode aesthetic. He wears a sharp, deep-navy linen shirt." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBRse-d2yaa04RphvfhHl7xHvDLDH-HeSldK2SZ5K9TwBcBRHVjoB3CeKZitucnODI8q8CXYayT9d7LcTpZYLwdmP3EVu37NerEG1vHjMkRpJqIFipu1aKqIQxoAsmiqrQa5q8DQ78jUqBzMLBogI-n6_Ur1MZNBiJhNS7yz1B22xGt6UnqMxOsifok5Xb51WRUm_wLqA6ER4vEFBbmZ69BRnLgqtcy6oKnmDX_n0FCVsJ3gmPw8ZN_mvWEj5WNTyPeHTLn2kAdMH0"/>
+<div class="absolute top-3 left-3 bg-status-available text-white font-label-caps text-[10px] px-2 py-0.5 rounded-full flex items-center gap-1">
+<span class="w-1.5 h-1.5 bg-white rounded-full"></span> AVAILABLE
+                    </div>
+<div class="absolute bottom-3 right-3 glass-card px-2 py-1 rounded-lg flex items-center gap-1 shadow-sm">
+<span class="material-symbols-outlined text-energy-yellow text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-data-mono text-body-sm font-bold">4.7</span>
+</div>
+</div>
+<div class="p-5 flex flex-col gap-4">
+<div>
+<h3 class="font-headline-sm text-[20px] text-on-surface">Numerologist Aryan</h3>
+<p class="text-on-surface-variant text-body-sm">Numerology • 12 Yrs Exp.</p>
+</div>
+<div class="flex justify-between items-end">
+<div class="flex flex-col">
+<span class="text-[10px] font-label-caps text-on-surface-variant">CONSULTATION</span>
+<span class="text-body-lg font-bold text-primary">₹20<span class="text-body-sm font-normal text-on-surface-variant">/min</span></span>
+</div>
+<button class="bg-sacred-orange text-white px-6 py-2 rounded-xl font-semibold active:scale-90 transition-transform shadow-md">Consult</button>
+</div>
+</div>
+</div>
+<!-- Card 4 -->
+<div class="bg-white border border-outline-variant rounded-2xl overflow-hidden hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group">
+<div class="relative h-48 w-full">
+<img class="w-full h-full object-cover" data-alt="A professional portrait of a female Vastu Shastra consultant holding a modern geometric floor plan. She is standing in a brightly lit, architecturally interesting space with clean lines and lots of natural light. The mood is expert, professional, and enlightened. The overall color palette is airy with touches of sacred orange and professional slate gray." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC0mAjL4fSPfQByjJVTao3xQ1kF8KRYDL34ANy4oy7zkC1Wz_o5cpsFDgUnaJb2DaAamSLsbEHSH3LCa_g23NxR1mFihygN4HAm6-dgz7Vk6NL21KtX0OPpI1JfYUojYbHA7MivG4yuYtTA0nytWDsMoLSkws3VJDRbAxpN-ZB-ScD1BS6axXK3-OpsX1OJYq8ueyoNIHzkjZBpXdNCoSQ6cTc6J_755jwaFoq56bJhk9oOqJNIy5HICung_s9Uy6ZDvmP1cj4z3RI"/>
+<div class="absolute top-3 left-3 bg-status-busy text-white font-label-caps text-[10px] px-2 py-0.5 rounded-full flex items-center gap-1">
+<span class="material-symbols-outlined text-[10px]">schedule</span> BUSY - 12 MIN
+                    </div>
+<div class="absolute bottom-3 right-3 glass-card px-2 py-1 rounded-lg flex items-center gap-1 shadow-sm">
+<span class="material-symbols-outlined text-energy-yellow text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-data-mono text-body-sm font-bold">5.0</span>
+</div>
+</div>
+<div class="p-5 flex flex-col gap-4">
+<div>
+<h3 class="font-headline-sm text-[20px] text-on-surface">Vastu Guru Megha</h3>
+<p class="text-on-surface-variant text-body-sm">Vastu, KP • 20 Yrs Exp.</p>
+</div>
+<div class="flex justify-between items-end">
+<div class="flex flex-col">
+<span class="text-[10px] font-label-caps text-on-surface-variant">CONSULTATION</span>
+<span class="text-body-lg font-bold text-primary">₹50<span class="text-body-sm font-normal text-on-surface-variant">/min</span></span>
+</div>
+<button class="bg-surface-container text-on-surface-variant px-6 py-2 rounded-xl font-semibold active:scale-95 transition-transform">Waitlist</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Pagination/Load More -->
+<div class="flex justify-center mt-stack-lg">
+<button class="flex items-center gap-2 border border-outline-variant px-8 py-3 rounded-full text-primary font-semibold hover:bg-surface-container-low transition-colors active:scale-95">
+<span class="material-symbols-outlined">expand_more</span>
+                Show More Experts
+            </button>
+</div>
+</main>
+<!-- Bottom Navigation Bar (Mobile) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-2 py-3 bg-surface border-t border-outline-variant shadow-lg rounded-t-xl">
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-3 py-1 hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined">home</span>
+<span class="font-label-caps text-label-caps mt-1">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-xl px-3 py-1 active:scale-90 transition-transform" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">chat_bubble</span>
+<span class="font-label-caps text-label-caps mt-1">Consult</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-3 py-1 hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined">shopping_bag</span>
+<span class="font-label-caps text-label-caps mt-1">Mall</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-3 py-1 hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined">rss_feed</span>
+<span class="font-label-caps text-label-caps mt-1">Feed</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-3 py-1 hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined">account_circle</span>
+<span class="font-label-caps text-label-caps mt-1">Profile</span>
+</a>
+</nav>
+<script>
+        // Micro-interaction for buttons
+        document.querySelectorAll('button').forEach(button => {
+            button.addEventListener('mousedown', () => button.style.transform = 'scale(0.96)');
+            button.addEventListener('mouseup', () => button.style.transform = 'scale(1)');
+            button.addEventListener('mouseleave', () => button.style.transform = 'scale(1)');
+        });
+
+        // Simple mock queue progression effect
+        const progressBars = document.querySelectorAll('.bg-sacred-orange.h-full');
+        setInterval(() => {
+            progressBars.forEach(bar => {
+                const currentWidth = parseFloat(bar.style.width) || (bar.classList.contains('w-2/3') ? 66 : 25);
+                const nextWidth = currentWidth + (Math.random() * 0.5);
+                if(nextWidth < 98) {
+                    bar.style.width = nextWidth + '%';
+                }
+            });
+        }, 3000);
+    </script>
+
+
+<script id="astro-active-nav-script">
+(function(){
+  var current=(location.pathname.split('/').pop()||'index.html').toLowerCase();
+  document.querySelectorAll('.astro-nav-link').forEach(function(a){
+    if((a.getAttribute('data-page')||'').toLowerCase()===current){a.classList.add('active');}
+  });
+})();
+</script>
+</body></html>
